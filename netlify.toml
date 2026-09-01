@@ -1,0 +1,23 @@
+# netlify.toml
+# Place this file in the ROOT of your GitHub repo (not inside any folder)
+
+# Force www redirect — http://wulardata.com → https://www.wulardata.com
+[[redirects]]
+  from = "http://wulardata.com/*"
+  to = "https://www.wulardata.com/:splat"
+  status = 301
+  force = true
+
+# Force www redirect — https://wulardata.com → https://www.wulardata.com
+[[redirects]]
+  from = "https://wulardata.com/*"
+  to = "https://www.wulardata.com/:splat"
+  status = 301
+  force = true
+
+# Redirect wulardata.in to wulardata.com (bonus fix)
+[[redirects]]
+  from = "https://wulardata.in/*"
+  to = "https://www.wulardata.com/:splat"
+  status = 301
+  force = true
