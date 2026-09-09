@@ -44,6 +44,13 @@ const Header = () => {
         <Logo />
 
         <nav className="hidden lg:flex items-center gap-1">
+          <NavLink
+            to="/"
+            className={({ isActive }) => `rounded px-3 py-2 text-sm font-semibold transition-colors ${isActive ? 'text-[hsl(var(--deep-blue))]' : 'text-foreground hover:text-[hsl(var(--deep-blue))]'}`}
+            end
+          >
+            Home
+          </NavLink>
           {PILLARS.map(p => (
             <div key={p.slug} className="relative" onMouseEnter={() => setOpenMenu(p.slug)}>
               <NavLink
