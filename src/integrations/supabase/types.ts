@@ -180,7 +180,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      admin_list_users: {
+      admin_list_users_internal: {
         Args: never
         Returns: {
           company: string
