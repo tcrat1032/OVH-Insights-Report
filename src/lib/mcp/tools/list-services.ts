@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const CATALOG = [
   {
-    category: "Data Center & Co Location",
+    category: "Data Center & Colocation",
     services: [
       "Dedicated Servers",
       "VPS",
@@ -30,7 +30,7 @@ export default defineTool({
   description: "List the WularData service catalogue, optionally filtered to one category.",
   inputSchema: {
     category: z
-      .enum(["Data Center & Co Location", "Domain & Web Management", "IT Support & Consulting"])
+      .enum(["Data Center & Colocation", "Domain & Web Management", "IT Support & Consulting"])
       .optional()
       .describe("Optional category filter."),
   },
