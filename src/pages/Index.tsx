@@ -140,7 +140,7 @@ const Index = () => {
                   <Icon className="h-8 w-8 text-[hsl(var(--deep-blue))] mb-3" />
                   <h3 className="font-bold mb-1">{s.name}</h3>
                   <p className="text-xs text-muted-foreground mb-4">{s.shortDesc}</p>
-                  <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{s.startingPrice}<span className="text-xs font-normal text-muted-foreground">/mo</span></p>
+                  <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{s.startingPrice}<span className="text-xs font-normal text-muted-foreground">{s.slug === "domain-registration" ? "" : "/mo"}</span></p>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-4">Starting price</p>
                   <Link to={`/contact?service=${encodeURIComponent(s.name)}`} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Configure →</Link>
                 </div>
