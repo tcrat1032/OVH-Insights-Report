@@ -10,11 +10,11 @@ import { Server, Cpu, HardDrive, Network, ShieldCheck, Zap, Globe2, Check, Arrow
 const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 const FAQS = [
-  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers are hosted in Tier-III+ data centers in Mumbai, India, with optional DR sites in Singapore and Frankfurt." },
-  { q: "How fast is server delivery?", a: "Most standard configurations from the Advance and Scale ranges are provisioned within 2 business hours. Custom builds typically deliver within 24–48 hours." },
-  { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost." },
-  { q: "Can I get IPMI / remote KVM access?", a: "Every server includes out-of-band IPMI / KVM access so you have full control even when the OS is unreachable." },
-  { q: "Is there an SLA?", a: "All dedicated servers come with a 99.99% network and power uptime SLA, with service credits if we miss it." },
+  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers are hosted in carrier-neutral, Tier-III+ data centers in Mumbai, India, with redundant power, cooling and blended IP transit. We also operate optional disaster-recovery sites in Singapore and Frankfurt, so you can build geographically separated active or standby environments for business continuity and low-latency delivery." },
+  { q: "How fast is server delivery?", a: "Most Advance and Scale range configurations are provisioned automatically within 2 business hours once your KYC and payment are verified. Custom builds with non-standard RAID layouts, additional drives or private VLANs typically ship within 24–48 hours, and our NOC keeps you updated at every step of the build." },
+  { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost. Our network automatically detects and scrubs volumetric attacks before they reach your host, while application-layer rules can be tuned on request to protect web-facing workloads and APIs." },
+  { q: "Can I get IPMI / remote KVM access?", a: "Every dedicated server includes out-of-band IPMI or KVM-over-IP access as standard, giving you full remote console and virtual-media control even when the operating system is unreachable. This allows you to install custom ISOs, troubleshoot boot issues, and recover from misconfigurations without waiting for support." },
+  { q: "Is there an SLA?", a: "All dedicated servers come with a 99.99% network and power uptime SLA, backed by dual upstream providers, redundant power feeds, and enterprise hardware monitoring. If we ever miss the SLA target in a calendar month, you are eligible for service credits calculated against the affected server’s monthly fee." },
 ];
 
 const FEATURES = [
