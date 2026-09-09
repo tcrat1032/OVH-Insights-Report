@@ -206,10 +206,12 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Globe, t: "Indian DC presence", d: "Low-latency hosting across multiple Indian metros, with data residency assured." },
-              { icon: ShieldCheck, t: "Security first", d: "DDoS protection, encryption at rest and in transit, and documented access controls and encryption." },
-              { icon: Wrench, t: "24×7 NOC", d: "Real engineers on call around the clock." },
-              { icon: Cpu, t: "Scalable by design", d: "Vertical and horizontal scaling on demand — no painful migrations." },
+              { icon: Globe, t: "Indian DC presence", d: "Your workloads run from Indian data centres in Delhi NCR and Chandigarh Tricity, with data residency documented in writing for auditors and compliance teams. Low-latency delivery for Indian users comes as standard, not as an add-on." },
+              { icon: ShieldCheck, t: "Security first", d: "We layer DDoS mitigation, TLS in transit, encryption at rest, and documented access controls around every workload. You get named-facility disclosure, audit logs, and a single accountable provider rather than a chain of third-party sub-processors." },
+              { icon: Wrench, t: "24×7 NOC", d: "Our network operations centre is staffed by engineers who know the hardware, not just a chatbot. They monitor, patch, troubleshoot and escalate around the clock so issues are caught before they become incidents." },
+              { icon: Cpu, t: "Scalable by design", d: "Start with a VPS, scale to dedicated servers, or reserve a full cage without re-architecting. Vertical and horizontal growth happens on the same contract and the same support team, so you never outgrow the relationship." },
+              { icon: Wrench, t: "Engineer-led support", d: "When you open a ticket, it is routed to a Linux, Windows, network or cloud engineer with hands-on experience in Indian data centre environments. No scripted front-line queues — just people who can read a log and fix the issue." },
+              { icon: HardDrive, t: "No lock-in", d: "Your virtual machines, databases and backups are stored in standard formats and can be exported at any time. We do not charge egress penalties or force proprietary control panels, so leaving is as straightforward as signing up." },
             ].map(b => (
               <div key={b.t} className="rounded-lg bg-white p-6 shadow-card">
                 <b.icon className="h-7 w-7 text-[hsl(var(--cyan))] mb-3" />
@@ -227,9 +229,17 @@ const Index = () => {
           <p className="eyebrow text-center mb-2">Solutions by industry</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">Trusted across sectors</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {["BFSI", "E-commerce", "SaaS", "Media", "Healthcare", "Education"].map(i => (
-              <div key={i} className="rounded-lg border bg-card p-5 text-center hover:border-[hsl(var(--cyan))] transition-colors">
-                <p className="font-semibold text-sm">{i}</p>
+            {[
+              { name: "BFSI", desc: "RBI data localisation, segregated environments, audit trails and DR within India. We support the documentation your auditors ask for, including named facility disclosure and access logs." },
+              { name: "E-commerce", desc: "Traffic that triples on sale days and dies at 3am. Bare metal for the database tier, scalable VPS for the front end, and CDN in front of both — sized for your peak, not your average." },
+              { name: "SaaS", desc: "SaaS companies need predictable infrastructure costs, fast release cycles and clear data residency for enterprise customers. We provide CI/CD-ready compute, managed databases and backup with contracts and SLAs that pass procurement." },
+              { name: "Media", desc: "Media and streaming workloads demand high-throughput storage, low-latency CDN and burst-ready compute. Our Indian edge delivery and unmetered bandwidth options keep playback smooth while keeping content and logs inside the country." },
+              { name: "Healthcare", desc: "Patient data protection requires Indian residency, access logging and encrypted storage. We help hospitals, clinics and health-tech firms host PII inside India with named-facility documentation and DR plans that satisfy clinical and regulatory reviewers." },
+              { name: "Education", desc: "Universities and ed-tech platforms need reliable LMS hosting, secure assessment portals and scalable video delivery during admissions. Our infrastructure supports peak loads at the start of a semester without long-term over-provisioning." },
+            ].map(i => (
+              <div key={i.name} className="rounded-lg border bg-card p-5 text-left hover:border-[hsl(var(--cyan))] transition-colors">
+                <p className="font-semibold text-sm mb-2">{i.name}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{i.desc}</p>
               </div>
             ))}
           </div>
