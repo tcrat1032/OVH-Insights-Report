@@ -77,7 +77,7 @@ const HeroSlider = () => {
         {SLIDES.map((s, i) => (
           <div
             key={s.title}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-out ${i === idx ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+            className={`absolute inset-0 transition-opacity duration-500 ease-out motion-reduce:transition-none ${i === idx ? "opacity-100 z-10" : "opacity-0 z-0"}`}
             aria-hidden={i !== idx}
           >
             {/* Background image */}
@@ -87,15 +87,15 @@ const HeroSlider = () => {
               width={1920}
               height={1080}
               loading={i === 0 ? "eager" : "lazy"}
-              className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[8000ms] ease-out ${i === idx ? "scale-110" : "scale-100"}`}
+              className={`hero-slide-image absolute inset-0 h-full w-full object-cover ${i === idx ? "hero-slide-image-active" : ""}`}
             />
             {/* Overlays for legibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(234_100%_10%/0.92)] via-[hsl(234_100%_15%/0.78)] to-[hsl(234_100%_15%/0.35)]" />
+            <div className="hero-directional-scrim absolute inset-0" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Content */}
             <div className="container-wd relative h-full flex items-center">
-              <div className={`max-w-2xl text-white transition-all duration-700 ${i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+              <div className={`hero-slide-copy max-w-2xl text-white ${i === idx ? "hero-slide-copy-active" : ""}`}>
                 <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.22em] text-white/80 mb-4">
                   {s.eyebrow}
                 </p>
@@ -112,7 +112,7 @@ const HeroSlider = () => {
                 </p>
                 <ul className="flex flex-wrap gap-2 mb-8">
                   {s.bullets.map(b => (
-                    <li key={b} className="text-xs md:text-sm font-medium px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white">
+                    <li key={b} className="hero-service-chip text-xs md:text-sm font-medium px-3 py-1.5 rounded-full backdrop-blur-sm">
                       {b}
                     </li>
                   ))}
@@ -121,7 +121,7 @@ const HeroSlider = () => {
                   <Link to={s.href} className="btn-cta">
                     {s.ctaLabel} <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <Link to="/contact" className="btn-outline-light">Get a quote</Link>
+                  <Link to="/contact" className="hero-ghost-button">Get a quote</Link>
                 </div>
               </div>
             </div>

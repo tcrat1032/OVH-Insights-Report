@@ -54,6 +54,13 @@
     --gradient-cyan: linear-gradient(135deg, hsl(234 100% 25%), hsl(198 100% 56%));
     --shadow-card: 0 1px 3px 0 hsl(234 100% 25% / 0.06), 0 4px 16px -2px hsl(234 100% 25% / 0.08);
     --shadow-elevated: 0 8px 24px -4px hsl(234 100% 25% / 0.18);
+    --hero-scrim: linear-gradient(100deg, rgba(6, 14, 35, 0.94) 0%, rgba(6, 14, 35, 0.86) 32%, rgba(6, 14, 35, 0.45) 62%, rgba(6, 14, 35, 0.22) 100%);
+    --hero-control-bg: 0 0% 100% / 0.08;
+    --hero-control-bg-hover: 0 0% 100% / 0.10;
+    --hero-control-border: 0 0% 100% / 0.20;
+    --hero-ghost-border: 0 0% 100% / 0.38;
+    --hero-ghost-border-hover: 0 0% 100% / 0.60;
+    --hero-control-foreground: 0 0% 100% / 0.92;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
@@ -116,10 +123,75 @@
   .btn-outline-light {
     @apply inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10;
   }
+  .hero-directional-scrim {
+    background: var(--hero-scrim);
+  }
+  .hero-slide-image {
+    filter: brightness(1.25) contrast(1.15) saturate(1.12);
+    transform: scale(1);
+  }
+  .hero-slide-image-active {
+    animation: hero-ken-burns 24s ease-out infinite alternate;
+  }
+  .hero-slide-copy {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .hero-slide-copy-active {
+    animation: hero-copy-in 400ms ease-out forwards;
+  }
+  .hero-service-chip {
+    background: hsl(var(--hero-control-bg));
+    border: 1px solid hsl(var(--hero-control-border));
+    color: hsl(var(--hero-control-foreground));
+  }
+  .hero-ghost-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-colors;
+    background: transparent;
+    border: 1.5px solid hsl(var(--hero-ghost-border));
+    color: hsl(var(--primary-foreground));
+  }
+  .hero-ghost-button:hover {
+    background: hsl(var(--hero-control-bg-hover));
+    border-color: hsl(var(--hero-ghost-border-hover));
+  }
   .section {
     @apply py-16 md:py-24;
   }
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--primary-mid))];
+  }
+}
+
+@keyframes hero-ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-image-active,
+  .hero-slide-copy-active {
+    animation: none;
+  }
+
+  .hero-slide-image {
+    transform: scale(1);
+  }
+
+  .hero-slide-copy,
+  .hero-slide-copy-active {
+    opacity: 1;
+    transform: none;
   }
 }
