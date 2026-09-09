@@ -24,7 +24,7 @@ export const PILLARS: Pillar[] = [
     slug: "data-center-services",
     name: "Data Center & Colocation",
     tagline: "Enterprise-grade compute, storage and connectivity",
-    description: "Production-ready infrastructure hosted in Indian data centers — from bare-metal dedicated servers to managed databases, backups and CDN.",
+    description: "Rack and cage colocation, single-tenant dedicated servers, VPS, managed databases, object storage and backup — all inside Indian data centres. Bring your own hardware into our racks, or take ours fully managed. Every workload stays on Indian soil with documented data residency, so your compliance team has a straight answer when the auditor asks where the data lives.",
     icon: Cloud,
     services: [
       {
@@ -82,7 +82,7 @@ export const PILLARS: Pillar[] = [
     slug: "hosting-services",
     name: "Domain & Web Management",
     tagline: "Everything you need to launch online",
-    description: "Domains, web hosting, business email and custom app development — a complete digital starter kit for businesses of any size.",
+    description: "Domain registration and DNS, business web hosting, professional email and custom web application development — running on our own infrastructure rather than resold from someone else's. One provider from the domain record through to the application, so there is no finger-pointing when something breaks at 2am.",
     icon: Globe,
     services: [
       {
@@ -118,7 +118,7 @@ export const PILLARS: Pillar[] = [
     slug: "it-infrastructure",
     name: "IT Support & Consulting",
     tagline: "We run, modernise and support your IT",
-    description: "Operate your environments with confidence — from day-2 managed services and migration consulting to on-site hardware support across India.",
+    description: "Day-to-day managed IT, annual maintenance contracts, network and virtualisation management, migration consulting and on-site hardware support. For businesses that need an IT function but do not need to hire and retain an internal team to get one.",
     icon: Wrench,
     services: [
       {
