@@ -33,7 +33,7 @@
               "enum": [
                 "Data Center & Co Location",
                 "Hosting Services",
-                "IT Infrastructure"
+                "IT Support & Consulting"
               ],
               "description": "Optional category filter."
             }
@@ -95,7 +95,7 @@
               "enum": [
                 "Data Center & Co Location",
                 "Hosting Services",
-                "IT Infrastructure"
+                "IT Support & Consulting"
               ],
               "description": "Top-level service category."
             },

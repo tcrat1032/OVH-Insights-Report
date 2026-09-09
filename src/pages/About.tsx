@@ -5,7 +5,7 @@ import { Building2, Target, Users, MapPin } from "lucide-react";
 import { useEffect } from "react";
 
 const About = () => {
-  useSeo({ title: 'About WularData — Indian Cloud & IT Infrastructure Partner', description: 'WularData is an Indian-owned provider of cloud, hosting and managed IT infrastructure with local data residency and 24x7 support.' });
+  useSeo({ title: 'About WularData — Indian Cloud & IT Support Partner', description: 'WularData is an Indian-owned provider of cloud, hosting, IT support and consulting with local data residency and 24x7 support.' });
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <PublicLayout>
