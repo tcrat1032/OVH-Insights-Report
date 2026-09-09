@@ -16,7 +16,7 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    title: "Data Center & Co Location",
+    title: "Data Center & Colocation",
     eyebrow: "Enterprise infrastructure",
     description: "Enterprise cloud hosting, VPS, colocation and managed backup from data centers in India — production-ready compute, storage and connectivity built for uptime and resilience.",
     bullets: ["Dedicated Servers & VPS", "Database & App Hosting", "Backup, DR & CDN"],
