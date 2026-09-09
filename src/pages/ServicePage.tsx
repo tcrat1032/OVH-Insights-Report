@@ -32,6 +32,8 @@ const ServicePage = () => {
   if (!pillar || !service) return <NotFound />;
 
   const Icon = service.icon;
+  const detail = SERVICE_DETAILS[`${pillar.slug}/${service.slug}`];
+
 
   return (
     <PublicLayout>
