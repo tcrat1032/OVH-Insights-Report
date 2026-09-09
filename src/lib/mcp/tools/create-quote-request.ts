@@ -8,7 +8,7 @@ export default defineTool({
   description: "Create a new WularData quote request for the signed-in user.",
   inputSchema: {
     service_category: z
-      .enum(["Data Center & Co Location", "Domain & Web Management", "IT Support & Consulting"])
+      .enum(["Data Center & Colocation", "Domain & Web Management", "IT Support & Consulting"])
       .describe("Top-level service category."),
     service_name: z.string().trim().min(2).max(150).describe("Service the quote is for, e.g. 'VPS'."),
     contact_name: z.string().trim().min(2).max(100).describe("Contact person's name."),

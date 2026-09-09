@@ -10,7 +10,7 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.26.2";
 import { z } from "npm:zod@^3.25.76";
 var CATALOG = [
   {
-    category: "Data Center & Co Location",
+    category: "Data Center & Colocation",
     services: [
       "Dedicated Servers",
       "VPS",
@@ -35,7 +35,7 @@ var list_services_default = defineTool({
   title: "List WularData services",
   description: "List the WularData service catalogue, optionally filtered to one category.",
   inputSchema: {
-    category: z.enum(["Data Center & Co Location", "Domain & Web Management", "IT Support & Consulting"]).optional().describe("Optional category filter.")
+    category: z.enum(["Data Center & Colocation", "Domain & Web Management", "IT Support & Consulting"]).optional().describe("Optional category filter.")
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ category }) => {
@@ -133,7 +133,7 @@ var create_quote_request_default = defineTool3({
   title: "Create a quote request",
   description: "Create a new WularData quote request for the signed-in user.",
   inputSchema: {
-    service_category: z3.enum(["Data Center & Co Location", "Domain & Web Management", "IT Support & Consulting"]).describe("Top-level service category."),
+    service_category: z3.enum(["Data Center & Colocation", "Domain & Web Management", "IT Support & Consulting"]).describe("Top-level service category."),
     service_name: z3.string().trim().min(2).max(150).describe("Service the quote is for, e.g. 'VPS'."),
     contact_name: z3.string().trim().min(2).max(100).describe("Contact person's name."),
     email: z3.string().trim().email().max(255).describe("Contact email address."),

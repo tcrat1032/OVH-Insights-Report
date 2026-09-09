@@ -120,7 +120,7 @@ const DedicatedServers = () => {
           <nav className="text-xs text-white/70 mb-4 flex items-center gap-2">
             <Link to="/" className="hover:text-[hsl(var(--cyan))]">Home</Link>
             <span>/</span>
-            <Link to="/data-center-services" className="hover:text-[hsl(var(--cyan))]">Data Center &amp; Co Location</Link>
+            <Link to="/data-center-services" className="hover:text-[hsl(var(--cyan))]">Data Center &amp; Colocation</Link>
             <span>/</span>
             <span>Dedicated Servers</span>
           </nav>

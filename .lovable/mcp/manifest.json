@@ -31,7 +31,7 @@
             "category": {
               "type": "string",
               "enum": [
-                "Data Center & Co Location",
+                "Data Center & Colocation",
                 "Domain & Web Management",
                 "IT Support & Consulting"
               ],
@@ -93,7 +93,7 @@
             "service_category": {
               "type": "string",
               "enum": [
-                "Data Center & Co Location",
+                "Data Center & Colocation",
                 "Domain & Web Management",
                 "IT Support & Consulting"
               ],
