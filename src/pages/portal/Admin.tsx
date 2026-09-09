@@ -1,5 +1,5 @@
 import PortalLayout from "@/components/portal/PortalLayout";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { FileText, LifeBuoy, Users, ShieldCheck, Loader2, Send } from "lucide-react";
@@ -148,8 +148,8 @@ const Admin = () => {
               </thead>
               <tbody>
                 {filteredQuotes.map(q => (
-                  <>
-                    <tr key={q.id} className="border-t cursor-pointer hover:bg-secondary/50" onClick={() => setOpenQuote(openQuote === q.id ? null : q.id)}>
+                  <Fragment key={q.id}>
+                    <tr className="border-t cursor-pointer hover:bg-secondary/50" onClick={() => setOpenQuote(openQuote === q.id ? null : q.id)}>
                       <td className="p-3 font-medium">{q.contact_name}<div className="text-xs text-muted-foreground">{q.company || "—"}</div></td>
                       <td className="p-3 text-muted-foreground">{q.email}<div className="text-xs">{q.phone || ""}</div></td>
                       <td className="p-3">{q.service_name}<div className="text-xs text-muted-foreground">{q.service_category}</div></td>
@@ -169,7 +169,7 @@ const Admin = () => {
                         </td>
                       </tr>
                     )}
-                  </>
+                  </Fragment>
                 ))}
                 {filteredQuotes.length === 0 && <tr><td colSpan={5} className="p-4 text-sm text-muted-foreground">No enquiries match your filters.</td></tr>}
               </tbody>
@@ -184,8 +184,8 @@ const Admin = () => {
             </thead>
             <tbody>
               {tickets.map(t => (
-                <>
-                  <tr key={t.id} className="border-t cursor-pointer hover:bg-secondary/50" onClick={() => openThread(t.id)}>
+                <Fragment key={t.id}>
+                  <tr className="border-t cursor-pointer hover:bg-secondary/50" onClick={() => openThread(t.id)}>
                     <td className="p-3 font-medium">{t.subject}</td>
                     <td className="p-3 text-muted-foreground">{t.service || "—"}</td>
                     <td className="p-3" onClick={e => e.stopPropagation()}>
@@ -219,7 +219,7 @@ const Admin = () => {
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
               {tickets.length === 0 && <tr><td colSpan={5} className="p-4 text-sm text-muted-foreground">No support tickets yet.</td></tr>}
             </tbody>
