@@ -24,6 +24,28 @@ const Index = () => {
       {/* Hero slideshow */}
       <HeroSlider />
 
+      {/* Homepage H1 introduction */}
+      <section className="section bg-secondary">
+        <div className="container-wd">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-4xl font-extrabold mb-6 text-[hsl(var(--deep-blue))]">
+              Cloud Hosting, Colocation and Managed IT Services in India
+            </h1>
+            <div className="space-y-4 text-[15px] md:text-base leading-relaxed text-foreground">
+              <p>
+                WularData is an Indian cloud and data centre services company built on a simple premise: your infrastructure and your data should sit in India, under Indian law, operated by engineers you can reach on the phone.
+              </p>
+              <p>
+                We run bare-metal dedicated servers, virtual private servers, colocation racks, managed backup and disaster recovery from Indian data centres — with your workloads and your customers' data resident in India under the DPDP Act, 2023. Alongside the infrastructure, we register and manage domains, host business websites and email, and run day-to-day IT operations for companies that would rather not build an internal team for it.
+              </p>
+              <p>
+                From a single VPS to a full cage, from a first website to a multi-site DR architecture — one provider, one contract, one number to call.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust strip */}
       <section className="border-b bg-white">
         <div className="container-wd grid grid-cols-2 md:grid-cols-4 divide-x">
