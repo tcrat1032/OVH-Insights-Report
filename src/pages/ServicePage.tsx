@@ -4,8 +4,11 @@ import NotFound from "./NotFound";
 import PublicLayout from "@/components/site/PublicLayout";
 import CTABand from "@/components/site/CTABand";
 import { PILLARS } from "@/data/services";
+import { SERVICE_DETAILS } from "@/data/serviceDetails";
+import FaqAccordion from "@/components/site/FaqAccordion";
 import { useSeo } from "@/lib/seo";
 import { ArrowRight, Check, Clock } from "lucide-react";
+
 
 /**
  * Generic SEO-friendly page for any service that does not (yet) have a
