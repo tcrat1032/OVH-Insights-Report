@@ -7,36 +7,44 @@ import itImg from "@/assets/hero-itinfra.jpg";
 
 type Slide = {
   title: string;
+  titleHighlight: string;
   eyebrow: string;
   description: string;
   bullets: string[];
   href: string;
+  ctaLabel: string;
   image: string;
 };
 
 const SLIDES: Slide[] = [
   {
-    title: "Data Center & Colocation",
-    eyebrow: "Enterprise infrastructure",
-    description: "Enterprise cloud hosting, VPS, colocation and managed backup from data centers in India — production-ready compute, storage and connectivity built for uptime and resilience.",
-    bullets: ["Dedicated Servers & VPS", "Database & App Hosting", "Backup, DR & CDN"],
+    title: "Colocation & Cloud Hosting in India",
+    titleHighlight: "Colocation",
+    eyebrow: "DATA CENTER & COLOCATION",
+    description: "Rack space, Dedicated Servers, Virtual Private Servers, Cloud Compute, Storage, Backup and DR connectivity from our PAN India Data centers — engineered for uptime, low latency and complete DPDA Compliance.",
+    bullets: ["Rack & Cage Colocation", "Cloud & VPS Hosting", "Backup & Disaster Recovery"],
     href: "/data-center-services",
+    ctaLabel: "Explore Colocation & Cloud",
     image: dcImg,
   },
   {
     title: "Domain Registration & Web Hosting",
-    eyebrow: "Launch online, fast",
-    description: "Domains, web hosting, business email and custom app development — a complete digital starter kit for businesses of any size.",
-    bullets: ["Domain Registration", "Web Hosting & Email", "App Development"],
+    titleHighlight: "Domain Registration",
+    eyebrow: "WEB HOSTING & DOMAINS",
+    description: "Domain registration, Business web hosting, Reseller Hosting, Professional email and custom web application development — hosted on our own Indian infrastructure, managed end-to-end.",
+    bullets: ["Domain Registration", "Web Hosting & Business Email", "Web & App Development"],
     href: "/hosting-services",
+    ctaLabel: "Explore Web Hosting & Domains",
     image: hostImg,
   },
   {
-    title: "IT Support & Consulting",
-    eyebrow: "Run, modernise, support",
-    description: "24×7 managed services, expert migration consulting and pan-India hardware support — operate your IT with confidence.",
-    bullets: ["IT Managed Services", "Consulting & Migration", "Hardware Support"],
+    title: "Managed IT Support & Consulting",
+    titleHighlight: "Managed IT",
+    eyebrow: "MANAGED IT SERVICES",
+    description: "Network Design, Servers & Virtualization Management, AMC and 24×7 monitoring — a single accountable IT Partner for businesses across India.",
+    bullets: ["Managed IT & AMC", "Network & Virtualization", "24×7 Monitoring & Support"],
     href: "/it-infrastructure",
+    ctaLabel: "Explore Managed IT Services",
     image: itImg,
   },
 ];
@@ -93,10 +101,10 @@ const HeroSlider = () => {
                 </p>
                 <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-5">
                   <span className="text-[hsl(140_70%_55%)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    {s.title.split(" ")[0]}
+                    {s.titleHighlight}
                   </span>{" "}
                   <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    {s.title.split(" ").slice(1).join(" ")}
+                    {s.title.slice(s.titleHighlight.length).trim()}
                   </span>
                 </h1>
                 <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl">
@@ -111,7 +119,7 @@ const HeroSlider = () => {
                 </ul>
                 <div className="flex flex-wrap gap-3">
                   <Link to={s.href} className="btn-cta">
-                    Explore {s.title} <ArrowRight className="h-4 w-4" />
+                    {s.ctaLabel} <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link to="/contact" className="btn-outline-light">Get a quote</Link>
                 </div>
