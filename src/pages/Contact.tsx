@@ -126,7 +126,7 @@ const Contact = () => {
               <ul className="space-y-3 text-sm">
                 <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <a href="tel:+919899313188" className="hover:underline">+91 9899313188</a></li>
                 <li className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <a href="mailto:reachus@wulardata.com" className="hover:underline">reachus@wulardata.com</a></li>
-                <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <span>WularData Pvt. Ltd.<br/>Registered office, India</span></li>
+                <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <span>Wular Data Lake Private Limited<br/>Regd. Office: B-8, Sector 2, Noida, UP - 201301</span></li>
               </ul>
             </div>
             <div className="rounded-lg border p-6">
