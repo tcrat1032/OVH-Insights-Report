@@ -124,7 +124,7 @@ const Contact = () => {
             <div className="rounded-lg bg-[hsl(var(--deep-blue))] text-white p-6">
               <h3 className="font-bold mb-4">Reach us directly</h3>
               <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <a href="tel:+916280265767" className="hover:underline">+91 6280265767</a></li>
+                <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <a href="tel:+919899313188" className="hover:underline">+91 9899313188</a></li>
                 <li className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <a href="mailto:reachus@wulardata.com" className="hover:underline">reachus@wulardata.com</a></li>
                 <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-[hsl(var(--cyan))]" /> <span>WularData Pvt. Ltd.<br/>Registered office, India</span></li>
               </ul>

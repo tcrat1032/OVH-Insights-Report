@@ -7,7 +7,7 @@ const CTABand = () => (
       <p className="text-white/80 max-w-2xl mx-auto mb-7">Talk to our infrastructure experts and get a tailored proposal for your workload — typically within one business day.</p>
       <div className="flex flex-wrap gap-3 justify-center">
         <Link to="/contact" className="btn-cta">Request a quote</Link>
-        <a href="tel:+916280265767" className="btn-outline-light">Call +91 6280265767</a>
+        <a href="tel:+919899313188" className="btn-outline-light">Call +91 9899313188</a>
       </div>
     </div>
   </section>
