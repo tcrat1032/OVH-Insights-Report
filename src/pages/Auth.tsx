@@ -65,6 +65,21 @@ const Auth = () => {
     setLoading(false);
   };
 
+  const forgotPassword = async () => {
+    const email = form.email.trim();
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      toast.error("Enter your email address first, then click reset");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setLoading(false);
+    if (error) toast.error(error.message);
+    else toast.success("Password reset link sent. Check your inbox.");
+  };
+
   const google = async () => {
     const redirect_uri = next
       ? `${window.location.origin}/auth?next=${encodeURIComponent(next)}`
@@ -106,6 +121,14 @@ const Auth = () => {
                 {mode === "signin" ? "Sign in" : "Create account"}
               </button>
             </form>
+
+            {mode === "signin" && (
+              <p className="text-center text-sm mt-3">
+                <button type="button" onClick={forgotPassword} className="text-muted-foreground hover:underline">
+                  Forgot password? Email me a reset link
+                </button>
+              </p>
+            )}
 
             <p className="text-center text-sm text-muted-foreground mt-5">
               {mode === "signin" ? "New to WularData?" : "Already have an account?"}{" "}

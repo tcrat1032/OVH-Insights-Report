@@ -16,6 +16,7 @@ import BackupAndDR from "./pages/BackupAndDR";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
+import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/portal/Dashboard";
 import Quotes from "./pages/portal/Quotes";
 import Tickets from "./pages/portal/Tickets";
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/portal" element={<Dashboard />} />
           <Route path="/portal/quotes" element={<Quotes />} />
           <Route path="/portal/tickets" element={<Tickets />} />
