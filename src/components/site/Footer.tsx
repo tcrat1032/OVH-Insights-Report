@@ -9,7 +9,7 @@ const Footer = () => {
       links: PILLARS[0].services.map(s => ({ name: s.name, to: `/data-center-services/${s.slug}` })),
     },
     {
-      title: "Hosting",
+      title: "Domain & Web Management",
       links: PILLARS[1].services.map(s => ({ name: s.name, to: `/hosting-services/${s.slug}` })),
     },
     {

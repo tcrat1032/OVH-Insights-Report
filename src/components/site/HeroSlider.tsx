@@ -24,7 +24,7 @@ const SLIDES: Slide[] = [
     image: dcImg,
   },
   {
-    title: "Hosting Services",
+    title: "Domain & Web Management",
     eyebrow: "Launch online, fast",
     description: "Domains, web hosting, business email and custom app development — a complete digital starter kit for businesses of any size.",
     bullets: ["Domain Registration", "Web Hosting & Email", "App Development"],

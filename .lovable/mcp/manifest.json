@@ -32,7 +32,7 @@
               "type": "string",
               "enum": [
                 "Data Center & Co Location",
-                "Hosting Services",
+                "Domain & Web Management",
                 "IT Support & Consulting"
               ],
               "description": "Optional category filter."
@@ -94,7 +94,7 @@
               "type": "string",
               "enum": [
                 "Data Center & Co Location",
-                "Hosting Services",
+                "Domain & Web Management",
                 "IT Support & Consulting"
               ],
               "description": "Top-level service category."

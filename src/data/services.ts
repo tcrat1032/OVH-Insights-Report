@@ -80,7 +80,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     slug: "hosting-services",
-    name: "Hosting Services",
+    name: "Domain & Web Management",
     tagline: "Everything you need to launch online",
     description: "Domains, web hosting, business email and custom app development — a complete digital starter kit for businesses of any size.",
     icon: Globe,
