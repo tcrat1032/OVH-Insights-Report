@@ -172,6 +172,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Why onshore */}
+      <section className="section bg-gradient-hero text-white">
+        <div className="container-wd">
+          <div className="text-center mb-12">
+            <p className="eyebrow text-[hsl(var(--cyan))] mb-2">WHY ONSHORE</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Why Indian businesses are moving workloads back onshore</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              { h: "The DPDP Act changed the default", b: "The Digital Personal Data Protection Act, 2023 puts the obligation on you — the data fiduciary — to know where personal data sits and who can reach it. Hosting inside India removes an entire category of questions from that answer. We host every workload in Indian data centres, and we will tell you the specific facility in writing." },
+              { h: "Jurisdiction is not a technical detail", b: "Data held on foreign-owned infrastructure can be subject to foreign legal process regardless of where the servers physically sit. For BFSI, healthcare, government and any business handling Indian citizens' personal data, the operating entity's jurisdiction matters as much as the rack's postcode. WularData is an Indian company operating Indian infrastructure under Indian law." },
+              { h: "Cost predictability in rupees", b: "Hyperscaler bills are denominated in dollars, priced per-gigabyte of egress, and move with the exchange rate. Our pricing is in rupees, bandwidth is unmetered on dedicated servers, and the invoice at the end of the month is the number you agreed at the start of it." },
+            ].map(item => (
+              <div key={item.h} className="rounded-lg bg-white/5 border border-white/15 p-6 backdrop-blur-sm">
+                <h3 className="font-bold text-lg mb-3 text-[hsl(140_70%_60%)]">{item.h}</h3>
+                <p className="text-sm text-white/85 leading-relaxed">{item.b}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link to="/contact" className="hero-ghost-button">Talk to us about migrating off a hyperscaler →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why WularData */}
       <section className="section bg-secondary">
         <div className="container-wd">
