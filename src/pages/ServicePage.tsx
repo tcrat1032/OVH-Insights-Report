@@ -149,7 +149,7 @@ const ServicePage = () => {
         <section className="section bg-secondary">
           <div className="container-wd max-w-3xl">
             <h2 className="text-2xl font-bold mb-6">Frequently asked questions</h2>
-            <FaqAccordion items={detail.faqs.map((f) => ({ question: f.q, answer: f.a }))} idPrefix={`${pillar.slug}-${service.slug}-faq`} />
+            <FaqAccordion faqs={detail.faqs} />
           </div>
         </section>
       )}
