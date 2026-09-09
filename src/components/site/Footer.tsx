@@ -5,7 +5,7 @@ import { PILLARS } from "@/data/services";
 const Footer = () => {
   const cols = [
     {
-      title: "Data Center",
+      title: "Data Center & Co Location",
       links: PILLARS[0].services.map(s => ({ name: s.name, to: `/data-center-services/${s.slug}` })),
     },
     {

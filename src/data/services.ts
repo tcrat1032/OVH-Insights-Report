@@ -22,7 +22,7 @@ export type Pillar = {
 export const PILLARS: Pillar[] = [
   {
     slug: "data-center-services",
-    name: "Data Center Services",
+    name: "Data Center & Co Location",
     tagline: "Enterprise-grade compute, storage and connectivity",
     description: "Production-ready infrastructure hosted in Indian data centers — from bare-metal dedicated servers to managed databases, backups and CDN.",
     icon: Cloud,

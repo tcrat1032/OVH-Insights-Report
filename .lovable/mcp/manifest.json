@@ -31,7 +31,7 @@
             "category": {
               "type": "string",
               "enum": [
-                "Data Center Services",
+                "Data Center & Co Location",
                 "Hosting Services",
                 "IT Infrastructure"
               ],
@@ -93,7 +93,7 @@
             "service_category": {
               "type": "string",
               "enum": [
-                "Data Center Services",
+                "Data Center & Co Location",
                 "Hosting Services",
                 "IT Infrastructure"
               ],
