@@ -49,12 +49,12 @@ const Index = () => {
       {/* Trust strip */}
       <section className="border-b bg-white">
         <div className="container-wd grid grid-cols-2 md:grid-cols-4 divide-x">
-          {[
-            { v: "Highly Available", l: "Uptime commitment" },
-            { v: "Geo Local", l: "PAN India Data centre locations" },
-            { v: "2020", l: "Operating since" },
-            { v: "24×7", l: "NOC and support" },
-          ].map(s => (
+            {[
+              { v: "ISO 27001", l: "Certified ISMS" },
+              { v: "3+", l: "Indian data centre locations" },
+              { v: "2021", l: "Operating since" },
+              { v: "24×7", l: "NOC and support" },
+            ].map(s => (
             <div key={s.l} className="px-4 py-4 text-center">
               <p className="text-2xl md:text-3xl font-extrabold text-[hsl(var(--deep-blue))]">{s.v}</p>
               <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</p>
