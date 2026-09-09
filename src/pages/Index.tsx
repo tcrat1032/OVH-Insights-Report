@@ -28,13 +28,13 @@ const Index = () => {
       <section className="border-b bg-white">
         <div className="container-wd grid grid-cols-2 md:grid-cols-4 divide-x">
           {[
-            { v: "99.99%", l: "Uptime SLA" },
-            { v: "3+", l: "Indian data centers" },
-            { v: "500+", l: "Customers served" },
-            { v: "24×7", l: "NOC & support" },
+            { v: "Highly Available", l: "Uptime commitment" },
+            { v: "Geo Local", l: "PAN India Data centre locations" },
+            { v: "2020", l: "Operating since" },
+            { v: "24×7", l: "NOC and support" },
           ].map(s => (
             <div key={s.l} className="px-4 py-4 text-center">
-              <p className="text-3xl md:text-4xl font-extrabold text-[hsl(var(--deep-blue))]">{s.v}</p>
+              <p className="text-2xl md:text-3xl font-extrabold text-[hsl(var(--deep-blue))]">{s.v}</p>
               <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{s.l}</p>
             </div>
           ))}
@@ -160,8 +160,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Globe, t: "Indian DC presence", d: "Low-latency hosting across multiple Indian metros, with data residency assured." },
-              { icon: ShieldCheck, t: "Security first", d: "DDoS protection, encryption at rest and in transit, and ISO-aligned controls." },
-              { icon: Wrench, t: "24×7 NOC", d: "Real engineers on call around the clock. Average first response under 15 minutes." },
+              { icon: ShieldCheck, t: "Security first", d: "DDoS protection, encryption at rest and in transit, and documented access controls and encryption." },
+              { icon: Wrench, t: "24×7 NOC", d: "Real engineers on call around the clock." },
               { icon: Cpu, t: "Scalable by design", d: "Vertical and horizontal scaling on demand — no painful migrations." },
             ].map(b => (
               <div key={b.t} className="rounded-lg bg-white p-6 shadow-card">
@@ -186,17 +186,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Testimonial */}
-      <section className="section bg-[hsl(var(--deep-blue))] text-white">
-        <div className="container-wd max-w-4xl text-center">
-          <p className="eyebrow text-[hsl(var(--cyan))] mb-4">Customer story</p>
-          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug mb-6">
-            "WularData migrated our entire e-commerce stack with zero downtime. Page load times dropped 40% and our ops team finally sleeps at night."
-          </blockquote>
-          <p className="text-white/70 text-sm">— CTO, leading Indian retail brand</p>
         </div>
       </section>
 
