@@ -10,11 +10,11 @@ import { Server, Cpu, HardDrive, Network, ShieldCheck, Zap, Globe2, Check, Arrow
 const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 const FAQS = [
-  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers are hosted in Tier-III+ data centers in Mumbai, India, with optional DR sites in Singapore and Frankfurt." },
-  { q: "How fast is server delivery?", a: "Most standard configurations from the Advance and Scale ranges are provisioned within 2 business hours. Custom builds typically deliver within 24–48 hours." },
-  { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost." },
-  { q: "Can I get IPMI / remote KVM access?", a: "Every server includes out-of-band IPMI / KVM access so you have full control even when the OS is unreachable." },
-  { q: "Is there an SLA?", a: "All dedicated servers come with a 99.99% network and power uptime SLA, with service credits if we miss it." },
+  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers are hosted in carrier-neutral, Tier-III+ data centers in Mumbai, India, with redundant power, cooling and blended IP transit. We also operate optional disaster-recovery sites in Singapore and Frankfurt, so you can build geographically separated active or standby environments for business continuity and low-latency delivery." },
+  { q: "How fast is server delivery?", a: "Most Advance and Scale range configurations are provisioned automatically within 2 business hours once your KYC and payment are verified. Custom builds with non-standard RAID layouts, additional drives or private VLANs typically ship within 24–48 hours, and our NOC keeps you updated at every step of the build." },
+  { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost. Our network automatically detects and scrubs volumetric attacks before they reach your host, while application-layer rules can be tuned on request to protect web-facing workloads and APIs." },
+  { q: "Can I get IPMI / remote KVM access?", a: "Every dedicated server includes out-of-band IPMI or KVM-over-IP access as standard, giving you full remote console and virtual-media control even when the operating system is unreachable. This allows you to install custom ISOs, troubleshoot boot issues, and recover from misconfigurations without waiting for support." },
+  { q: "Is there an SLA?", a: "All dedicated servers come with a 99.99% network and power uptime SLA, backed by dual upstream providers, redundant power feeds, and enterprise hardware monitoring. If we ever miss the SLA target in a calendar month, you are eligible for service credits calculated against the affected server’s monthly fee." },
 ];
 
 const FEATURES = [
@@ -347,6 +347,75 @@ const DedicatedServers = () => {
         <div className="container-wd max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Frequently asked questions</h2>
           <FaqAccordion faqs={FAQS} />
+        </div>
+      </section>
+
+      {/* How to choose */}
+      <section className="section">
+        <div className="container-wd">
+          <div className="max-w-3xl mb-10">
+            <p className="eyebrow text-[hsl(var(--royal))] mb-2">Server selector</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">How to choose the right dedicated server</h2>
+            <p className="text-muted-foreground">
+              Match your workload to the right hardware family. Each range is built around a different balance of compute density, memory, storage and cost, so you only pay for what you actually need.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { title: "Advance", desc: "The best starting point for web hosting, small virtualisation projects, business applications and intranet portals. Advance servers deliver reliable Intel Xeon or AMD EPYC performance, ECC memory and fast NVMe storage without over-provisioning your budget." },
+              { title: "Scale", desc: "Built for high-traffic production environments, multi-tenant SaaS platforms, container clusters and CI/CD farms. Scale servers pack more cores, memory and bandwidth so you can run many workloads on fewer physical hosts." },
+              { title: "High Grade", desc: "Mission-critical databases, large-scale virtualisation, high-frequency trading and AI/ML inference need predictable, top-tier performance. High Grade nodes use the latest multi-socket CPUs, terabytes of RAM and all-NVMe storage for the most demanding jobs." },
+              { title: "Storage", desc: "When capacity matters more than raw clock speed, Storage servers are ideal for backup targets, media archives, data lakes, log retention and long-term repositories. Choose high-density SATA or SAS configurations with hardware RAID and optional cold-tier expansion." },
+            ].map((c) => (
+              <div key={c.title} className="rounded-lg border bg-card p-6 shadow-card">
+                <h3 className="font-bold text-[hsl(var(--deep-blue))] mb-2">{c.title}</h3>
+                <p className="text-sm text-muted-foreground">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison table */}
+      <section className="section bg-secondary">
+        <div className="container-wd">
+          <div className="max-w-3xl mb-10">
+            <p className="eyebrow text-[hsl(var(--royal))] mb-2">Decision aid</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Dedicated server vs VPS vs colocation</h2>
+            <p className="text-muted-foreground">
+              Compare the three main ways to run infrastructure with WularData. Pick the model that fits your control, cost and scaling priorities.
+            </p>
+          </div>
+          <div className="overflow-x-auto rounded-lg border bg-card shadow-card">
+            <table className="w-full min-w-[640px] text-sm">
+              <thead className="bg-secondary text-left">
+                <tr className="text-xs uppercase tracking-wider text-muted-foreground">
+                  <th className="px-4 py-3 w-1/4">Factor</th>
+                  <th className="px-4 py-3 w-1/4">Dedicated Server</th>
+                  <th className="px-4 py-3 w-1/4">VPS</th>
+                  <th className="px-4 py-3 w-1/4">Colocation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Control", "Full root access plus IPMI/KVM remote console.", "Full OS root access, but hypervisor and hardware are managed by us.", "Complete hardware, OS and network control; you manage your own kit."],
+                  ["Performance isolation", "No noisy neighbours; predictable CPU, RAM and disk I/O.", "Shared host resources; usually fine for light-to-moderate loads.", "Depends on hardware you own, but rack power and network are dedicated."],
+                  ["Hardware ownership", "Rented/leased from WularData; we handle hardware faults.", "No physical hardware; resources are virtual slices.", "You own the servers; WularData provides rack, power and connectivity."],
+                  ["Upfront cost", "Low to zero; monthly billing only.", "Lowest; no setup fees on most plans.", "Higher; you purchase servers, switches and initial rack setup."],
+                  ["Monthly cost", "Moderate to high based on CPU, RAM and storage.", "Low; ideal for tight budgets and variable traffic.", "Moderate recurring fee for rack space, power and bandwidth."],
+                  ["Scaling speed", "Hours to days; new hardware may need provisioning.", "Minutes; resize or clone a VM instantly.", "Days to weeks; limited by physical rack space and procurement."],
+                  ["Best-suited use case", "Mission-critical apps that need balance of performance and control.", "Small sites, dev/test environments and microservices.", "Compliance, custom hardware, or total data-sovereignty requirements."],
+                ].map((row, idx) => (
+                  <tr key={row[0]} className={`border-t ${idx % 2 === 1 ? "bg-secondary/40" : ""}`}>
+                    <td className="px-4 py-3 font-semibold text-[hsl(var(--deep-blue))]">{row[0]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[1]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[2]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[3]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
