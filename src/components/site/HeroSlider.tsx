@@ -104,7 +104,7 @@ const HeroSlider = () => {
                     {s.titleHighlight}
                   </span>{" "}
                   <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    {s.title.slice(s.titleHighlight.length).trim().replace(/^&\s*/, "")}
+                    {s.title.slice(s.titleHighlight.length).trim()}
                   </span>
                 </h1>
                 <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl">
