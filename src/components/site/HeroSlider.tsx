@@ -18,7 +18,7 @@ const SLIDES: Slide[] = [
   {
     title: "Data Center & Co Location",
     eyebrow: "Enterprise infrastructure",
-    description: "Production-ready compute, storage, backup and connectivity hosted in Indian data centers — engineered for performance and resilience.",
+    description: "Enterprise cloud hosting, VPS, colocation and managed backup from data centers in India — production-ready compute, storage and connectivity built for uptime and resilience.",
     bullets: ["Dedicated Servers & VPS", "Database & App Hosting", "Backup, DR & CDN"],
     href: "/data-center-services",
     image: dcImg,
