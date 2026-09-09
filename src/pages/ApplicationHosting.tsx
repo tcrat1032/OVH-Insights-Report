@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSeo } from "@/lib/seo";
 import PublicLayout from "@/components/site/PublicLayout";
+import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { APP_HOSTING_PRODUCTS, APP_HOSTING_CATEGORIES, type AppHostingCategory } from "@/data/applicationHosting";
 import { Rocket, ShieldCheck, Globe2, Zap, Layers, Workflow, ArrowRight, Check, Search, Star } from "lucide-react";
@@ -217,17 +218,7 @@ const ApplicationHosting = () => {
       <section className="section bg-secondary">
         <div className="container-wd max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Frequently asked questions</h2>
-          <div className="space-y-3">
-            {FAQS.map(f => (
-              <details key={f.q} className="group rounded-lg border bg-card p-5 shadow-card">
-                <summary className="flex cursor-pointer items-center justify-between font-semibold text-[hsl(var(--deep-blue))]">
-                  {f.q}
-                  <span className="ml-4 text-[hsl(var(--cyan))] group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion faqs={FAQS} />
         </div>
       </section>
 
