@@ -118,6 +118,7 @@ const Header = () => {
                 </ul>
               </details>
             ))}
+            <Link to="/" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">Home</Link>
             <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">About</Link>
             <Link to="/contact" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">Contact</Link>
             <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-primary-solid w-full !py-2.5">Get a quote</Link>
