@@ -350,6 +350,75 @@ const DedicatedServers = () => {
         </div>
       </section>
 
+      {/* How to choose */}
+      <section className="section">
+        <div className="container-wd">
+          <div className="max-w-3xl mb-10">
+            <p className="eyebrow text-[hsl(var(--royal))] mb-2">Server selector</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">How to choose the right dedicated server</h2>
+            <p className="text-muted-foreground">
+              Match your workload to the right hardware family. Each range is built around a different balance of compute density, memory, storage and cost, so you only pay for what you actually need.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { title: "Advance", desc: "The best starting point for web hosting, small virtualisation projects, business applications and intranet portals. Advance servers deliver reliable Intel Xeon or AMD EPYC performance, ECC memory and fast NVMe storage without over-provisioning your budget." },
+              { title: "Scale", desc: "Built for high-traffic production environments, multi-tenant SaaS platforms, container clusters and CI/CD farms. Scale servers pack more cores, memory and bandwidth so you can run many workloads on fewer physical hosts." },
+              { title: "High Grade", desc: "Mission-critical databases, large-scale virtualisation, high-frequency trading and AI/ML inference need predictable, top-tier performance. High Grade nodes use the latest multi-socket CPUs, terabytes of RAM and all-NVMe storage for the most demanding jobs." },
+              { title: "Storage", desc: "When capacity matters more than raw clock speed, Storage servers are ideal for backup targets, media archives, data lakes, log retention and long-term repositories. Choose high-density SATA or SAS configurations with hardware RAID and optional cold-tier expansion." },
+            ].map((c) => (
+              <div key={c.title} className="rounded-lg border bg-card p-6 shadow-card">
+                <h3 className="font-bold text-[hsl(var(--deep-blue))] mb-2">{c.title}</h3>
+                <p className="text-sm text-muted-foreground">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison table */}
+      <section className="section bg-secondary">
+        <div className="container-wd">
+          <div className="max-w-3xl mb-10">
+            <p className="eyebrow text-[hsl(var(--royal))] mb-2">Decision aid</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Dedicated server vs VPS vs colocation</h2>
+            <p className="text-muted-foreground">
+              Compare the three main ways to run infrastructure with WularData. Pick the model that fits your control, cost and scaling priorities.
+            </p>
+          </div>
+          <div className="overflow-x-auto rounded-lg border bg-card shadow-card">
+            <table className="w-full min-w-[640px] text-sm">
+              <thead className="bg-secondary text-left">
+                <tr className="text-xs uppercase tracking-wider text-muted-foreground">
+                  <th className="px-4 py-3 w-1/4">Factor</th>
+                  <th className="px-4 py-3 w-1/4">Dedicated Server</th>
+                  <th className="px-4 py-3 w-1/4">VPS</th>
+                  <th className="px-4 py-3 w-1/4">Colocation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Control", "Full root access plus IPMI/KVM remote console.", "Full OS root access, but hypervisor and hardware are managed by us.", "Complete hardware, OS and network control; you manage your own kit."],
+                  ["Performance isolation", "No noisy neighbours; predictable CPU, RAM and disk I/O.", "Shared host resources; usually fine for light-to-moderate loads.", "Depends on hardware you own, but rack power and network are dedicated."],
+                  ["Hardware ownership", "Rented/leased from WularData; we handle hardware faults.", "No physical hardware; resources are virtual slices.", "You own the servers; WularData provides rack, power and connectivity."],
+                  ["Upfront cost", "Low to zero; monthly billing only.", "Lowest; no setup fees on most plans.", "Higher; you purchase servers, switches and initial rack setup."],
+                  ["Monthly cost", "Moderate to high based on CPU, RAM and storage.", "Low; ideal for tight budgets and variable traffic.", "Moderate recurring fee for rack space, power and bandwidth."],
+                  ["Scaling speed", "Hours to days; new hardware may need provisioning.", "Minutes; resize or clone a VM instantly.", "Days to weeks; limited by physical rack space and procurement."],
+                  ["Best-suited use case", "Mission-critical apps that need balance of performance and control.", "Small sites, dev/test environments and microservices.", "Compliance, custom hardware, or total data-sovereignty requirements."],
+                ].map((row, idx) => (
+                  <tr key={row[0]} className={`border-t ${idx % 2 === 1 ? "bg-secondary/40" : ""}`}>
+                    <td className="px-4 py-3 font-semibold text-[hsl(var(--deep-blue))]">{row[0]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[1]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[2]}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{row[3]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <CTABand />
     </PublicLayout>
   );
