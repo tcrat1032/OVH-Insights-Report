@@ -99,14 +99,14 @@ const HeroSlider = () => {
                 <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.22em] text-white/80 mb-4">
                   {s.eyebrow}
                 </p>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-5">
+                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight mb-5">
                   <span className="text-[hsl(140_70%_55%)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
                     {s.titleHighlight}
                   </span>{" "}
                   <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
                     {s.title.slice(s.titleHighlight.length).trim()}
                   </span>
-                </h1>
+                </h2>
                 <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl">
                   {s.description}
                 </p>
