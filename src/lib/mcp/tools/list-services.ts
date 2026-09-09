@@ -19,7 +19,7 @@ const CATALOG = [
     services: ["Domain Registration", "Web Hosting", "App Development", "Business Email Accounts"],
   },
   {
-    category: "IT Infrastructure",
+    category: "IT Support & Consulting",
     services: ["IT Managed Services", "Consulting and Migration", "Hardware Support"],
   },
 ];
@@ -30,7 +30,7 @@ export default defineTool({
   description: "List the WularData service catalogue, optionally filtered to one category.",
   inputSchema: {
     category: z
-      .enum(["Data Center & Co Location", "Hosting Services", "IT Infrastructure"])
+      .enum(["Data Center & Co Location", "Hosting Services", "IT Support & Consulting"])
       .optional()
       .describe("Optional category filter."),
   },

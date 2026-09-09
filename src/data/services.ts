@@ -116,7 +116,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     slug: "it-infrastructure",
-    name: "IT Infrastructure",
+    name: "IT Support & Consulting",
     tagline: "We run, modernise and support your IT",
     description: "Operate your environments with confidence — from day-2 managed services and migration consulting to on-site hardware support across India.",
     icon: Wrench,

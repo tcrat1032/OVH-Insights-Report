@@ -32,7 +32,7 @@ const SLIDES: Slide[] = [
     image: hostImg,
   },
   {
-    title: "IT Infrastructure",
+    title: "IT Support & Consulting",
     eyebrow: "Run, modernise, support",
     description: "24×7 managed services, expert migration consulting and pan-India hardware support — operate your IT with confidence.",
     bullets: ["IT Managed Services", "Consulting & Migration", "Hardware Support"],
