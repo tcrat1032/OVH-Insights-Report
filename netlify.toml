@@ -21,3 +21,11 @@
   to = "https://www.wulardata.com/:splat"
   status = 301
   force = true
+
+# SPA fallback — MUST be the last rule.
+# Without this, deep links like /contact or
+# /data-center-services/dedicated-servers return Netlify's 404 page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
