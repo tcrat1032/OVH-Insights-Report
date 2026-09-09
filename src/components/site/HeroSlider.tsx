@@ -101,10 +101,10 @@ const HeroSlider = () => {
                 </p>
                 <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-5">
                   <span className="text-[hsl(140_70%_55%)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    {s.title.split(" ")[0]}
+                    {s.titleHighlight}
                   </span>{" "}
                   <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                    {s.title.split(" ").slice(1).join(" ")}
+                    {s.title.slice(s.titleHighlight.length).trim().replace(/^&\s*/, "")}
                   </span>
                 </h1>
                 <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl">
@@ -119,7 +119,7 @@ const HeroSlider = () => {
                 </ul>
                 <div className="flex flex-wrap gap-3">
                   <Link to={s.href} className="btn-cta">
-                    Explore {s.title} <ArrowRight className="h-4 w-4" />
+                    {s.ctaLabel} <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link to="/contact" className="btn-outline-light">Get a quote</Link>
                 </div>
