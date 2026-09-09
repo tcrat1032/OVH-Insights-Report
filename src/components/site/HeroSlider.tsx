@@ -21,7 +21,7 @@ const SLIDES: Slide[] = [
     title: "Colocation & Cloud Hosting in India",
     titleHighlight: "Colocation",
     eyebrow: "DATA CENTER & COLOCATION",
-    description: "Rack space, Dedicated Servers, Virtual Private Servers, Cloud Compute, Storage, Backup and DR connectivity from our PAN India Data centers — engineered for uptime, low latency and complete DPDA Compliance.",
+    description: "Rack space, Dedicated Servers, Virtual Private Servers, Cloud Compute, Storage, Backup and DR connectivity from our PAN India Data centers — engineered for uptime, low latency and DPDP Act data residency.",
     bullets: ["Rack & Cage Colocation", "Cloud & VPS Hosting", "Backup & Disaster Recovery"],
     href: "/data-center-services",
     ctaLabel: "Explore Colocation & Cloud",
