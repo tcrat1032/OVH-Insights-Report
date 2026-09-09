@@ -36,6 +36,67 @@ const DedicatedServers = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // JSON-LD structured data (ItemList of Products, BreadcrumbList, FAQPage)
+  useEffect(() => {
+    const itemList = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "WularData Dedicated Servers",
+      itemListElement: DEDICATED_SERVERS.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Product",
+          name: `${s.name} Dedicated Server`,
+          sku: s.name,
+          description: `${s.cpu} · ${s.memory} · ${s.storage} · ${s.bandwidth}`,
+          brand: { "@type": "Brand", name: "WularData" },
+          category: "Dedicated Server Hosting",
+          offers: {
+            "@type": "Offer",
+            url: `https://wulardata.com/data-center-services/dedicated-servers#${s.name}`,
+            priceCurrency: "INR",
+            price: s.priceMonthly,
+            priceValidUntil: "2027-03-31",
+            availability: "https://schema.org/InStock",
+            seller: { "@type": "Organization", name: "WularData" },
+          },
+        },
+      })),
+    };
+
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://wulardata.com/" },
+        { "@type": "ListItem", position: 2, name: "Data Center & Colocation", item: "https://wulardata.com/data-center-services" },
+        { "@type": "ListItem", position: 3, name: "Dedicated Servers", item: "https://wulardata.com/data-center-services/dedicated-servers" },
+      ],
+    };
+
+    const faqPage = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FAQS.map(f => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
+
+    const scripts = [itemList, breadcrumb, faqPage].map(data => {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.setAttribute("data-wd-jsonld", "dedicated-servers");
+      el.textContent = JSON.stringify(data);
+      document.head.appendChild(el);
+      return el;
+    });
+
+    return () => { scripts.forEach(el => el.remove()); };
+  }, []);
+
   const filtered = useMemo(() => {
     let list = DEDICATED_SERVERS.filter(s =>
       (range === "All" || s.range === range) &&
