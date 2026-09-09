@@ -25,18 +25,19 @@ const Admin = () => {
   const [me, setMe] = useState<string>("");
 
   const load = async () => {
-    const [{ data: q }, { data: t }, { data: u }, { data: session }] = await Promise.all([
+    const [{ data: q }, { data: t }, adminUsers, { data: session }] = await Promise.all([
       supabase.from("quote_requests").select("*").order("created_at", { ascending: false }),
       supabase.from("support_tickets").select("*").order("created_at", { ascending: false }),
-      supabase.rpc("admin_list_users"),
+      supabase.functions.invoke("admin-users"),
       supabase.auth.getSession(),
     ]);
     setQuotes(q || []);
     setTickets(t || []);
-    setUsers((u as any[]) || []);
+    setUsers(((adminUsers.data as any)?.users as any[]) || []);
     setMe(session?.session?.user.id || "");
     setLoading(false);
   };
+
 
   useEffect(() => { document.title = "Site administration | WularData"; load(); }, []);
 
