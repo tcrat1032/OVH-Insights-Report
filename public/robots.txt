@@ -5,10 +5,18 @@
 # Google
 User-agent: Googlebot
 Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
 
 # Twitter / X link previews
 User-agent: Twitterbot
@@ -32,6 +40,10 @@ Allow: /
 Disallow: /hello-test/
 Disallow: /.netlify/
 Disallow: /supabase/
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
 
 # Sitemap location
 Sitemap: https://wulardata.com/sitemap.xml
