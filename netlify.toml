@@ -28,10 +28,139 @@
   status = 301
   force = true
 
-# SPA fallback — MUST be the last rule.
-# Without this, deep links like /contact or
-# /data-center-services/dedicated-servers return Netlify's 404 page.
+# ---------------------------------------------------------------------------
+# App routes. Every real page is served by the React app with status 200.
+# IMPORTANT: when you add a new page to src/App.tsx or src/data/services.ts,
+# add its path here (and to public/sitemap.xml), or it will return 404.
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/dedicated-servers"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/vps"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/application-hosting"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/database-hosting"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/storage-provisioning"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/backup-and-dr"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/data-center-services/connectivity-and-cdn"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/hosting-services"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/hosting-services/domain-registration"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/hosting-services/web-hosting"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/hosting-services/app-development"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/hosting-services/business-email"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/it-infrastructure"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/it-infrastructure/it-managed-services"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/it-infrastructure/consulting-and-migration"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/it-infrastructure/hardware-support"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/auth"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/reset-password"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/portal"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/portal/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+# Anything else: show the app's "Page not found" screen with a real 404 status
+# (prevents Google "soft 404" errors). MUST be the last rule.
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
