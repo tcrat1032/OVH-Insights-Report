@@ -13,6 +13,13 @@
   status = 301
   force = true
 
+# Keep the legacy /home URL consolidated into the canonical homepage.
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = true
+
 # ---------------------------------------------------------------------------
 # App routes. Every real page is served by the React app with status 200.
 # IMPORTANT: when you add a new page to src/App.tsx or src/data/services.ts,
