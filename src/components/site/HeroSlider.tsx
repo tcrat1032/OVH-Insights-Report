@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Pause, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import dcImg from "@/assets/hero-datacenter.jpg";
 import hostImg from "@/assets/hero-hosting.jpg";
 import itImg from "@/assets/hero-itinfra.jpg";
@@ -57,7 +58,6 @@ const HeroSlider = () => {
 
   const go = useCallback((n: number) => setIdx((n + SLIDES.length) % SLIDES.length), []);
   const next = useCallback(() => setIdx(i => (i + 1) % SLIDES.length), []);
-  const prev = useCallback(() => setIdx(i => (i - 1 + SLIDES.length) % SLIDES.length), []);
 
   useEffect(() => {
     if (paused) return;
@@ -68,12 +68,10 @@ const HeroSlider = () => {
   return (
     <section
       className="relative overflow-hidden bg-[hsl(var(--deep-blue))]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"
       aria-label="WularData services"
     >
-      <div className="relative h-[560px] md:h-[640px]">
+      <div className="relative h-[720px] sm:h-[680px] md:h-[640px]">
         {SLIDES.map((s, i) => (
           <div
             key={s.title}
@@ -94,7 +92,7 @@ const HeroSlider = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Content */}
-            <div className="container-wd relative h-full flex items-center">
+            <div className="container-wd relative flex h-full items-start pb-24 pt-10 sm:items-center sm:pb-24 sm:pt-0 md:pb-20">
               <div className={`hero-slide-copy max-w-2xl text-white ${i === idx ? "hero-slide-copy-active" : ""}`}>
                 <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.22em] text-white/80 mb-4">
                   {s.eyebrow}
@@ -128,48 +126,49 @@ const HeroSlider = () => {
           </div>
         ))}
 
-        {/* Prev / Next */}
-        <button
-          onClick={prev}
-          aria-label="Previous slide"
-          className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          onClick={next}
-          aria-label="Next slide"
-          className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-
         {/* Dots + labels */}
         <div className="absolute bottom-6 left-0 right-0 z-20">
-          <div className="container-wd flex flex-wrap items-center gap-2 md:gap-3">
-            {SLIDES.map((s, i) => (
-              <button
-                key={s.title}
-                onClick={() => go(i)}
-                aria-label={`Go to ${s.title}`}
-                aria-current={i === idx}
-                className={`group relative overflow-hidden rounded-full border transition-all ${
-                  i === idx
-                    ? "border-[hsl(140_70%_55%)] bg-white/15"
-                    : "border-white/30 hover:border-white/60 bg-white/5"
-                } px-3 md:px-4 py-1.5 backdrop-blur-sm`}
-              >
-                <span className={`text-[11px] md:text-xs font-semibold tracking-wide ${i === idx ? "text-[hsl(140_70%_60%)]" : "text-white/85"}`}>
-                  0{i + 1} · {s.title}
-                </span>
-                {i === idx && !paused && (
-                  <span
-                    key={idx}
-                    className="absolute bottom-0 left-0 h-0.5 bg-[hsl(140_70%_55%)] animate-[heroProgress_6s_linear_forwards]"
-                  />
-                )}
-              </button>
-            ))}
+          <div className="container-wd flex items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-2 md:gap-3">
+              {SLIDES.map((s, i) => (
+                <Button
+                  key={s.title}
+                  type="button"
+                  variant="ghost"
+                  onClick={() => go(i)}
+                  aria-label={`Go to ${s.title}`}
+                  aria-current={i === idx ? "true" : undefined}
+                  className={`group relative h-10 min-w-10 overflow-hidden rounded-full border p-0 backdrop-blur-sm transition-all md:h-auto md:w-auto md:px-4 md:py-1.5 ${
+                    i === idx
+                      ? "border-[hsl(140_70%_55%)] bg-white/15 hover:bg-white/15"
+                      : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
+                  }`}
+                >
+                  <span className={`text-xs font-semibold tracking-wide ${i === idx ? "text-[hsl(140_70%_60%)]" : "text-white/85"}`}>
+                    <span className="md:hidden">0{i + 1}</span>
+                    <span className="hidden md:inline">0{i + 1} · {s.title}</span>
+                  </span>
+                  {i === idx && !paused && (
+                    <span
+                      key={idx}
+                      className="absolute bottom-0 left-0 h-0.5 bg-[hsl(140_70%_55%)] animate-[heroProgress_6s_linear_forwards]"
+                    />
+                  )}
+                </Button>
+              ))}
+            </div>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => setPaused(current => !current)}
+              aria-label={paused ? "Resume slideshow" : "Pause slideshow"}
+              aria-pressed={paused}
+              title={paused ? "Resume slideshow" : "Pause slideshow"}
+              className="shrink-0 rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:border-white/60 hover:bg-white/20 hover:text-white"
+            >
+              {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
+            </Button>
           </div>
         </div>
       </div>
