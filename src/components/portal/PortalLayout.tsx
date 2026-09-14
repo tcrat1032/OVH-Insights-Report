@@ -1,7 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { LayoutDashboard, FileText, LifeBuoy, User, LogOut, Shield, Loader2 } from "lucide-react";
+import { LayoutDashboard, FileText, LifeBuoy, User, LogOut, Shield, Loader2, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const PortalLayout = ({ children, requireAdmin = false }: { children: ReactNode; requireAdmin?: boolean }) => {
@@ -9,6 +10,7 @@ const PortalLayout = ({ children, requireAdmin = false }: { children: ReactNode;
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [email, setEmail] = useState<string>("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -41,14 +43,16 @@ const PortalLayout = ({ children, requireAdmin = false }: { children: ReactNode;
 
   return (
     <div className="min-h-screen bg-secondary flex">
-      <aside className="w-64 bg-white border-r flex flex-col">
+      <Button variant="outline" size="icon" className="fixed left-3 top-3 z-50 bg-background lg:hidden" onClick={() => setMobileOpen(current => !current)} aria-label={mobileOpen ? "Close navigation" : "Open navigation"}>{mobileOpen ? <X /> : <Menu />}</Button>
+      {mobileOpen && <div className="fixed inset-0 z-30 bg-foreground/30 lg:hidden" onClick={() => setMobileOpen(false)} />}
+      <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r flex flex-col transition-transform lg:static lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <Link to="/" className="flex items-center gap-2 p-5 border-b">
           <div className="h-7 w-7 rounded bg-[hsl(var(--deep-blue))] flex items-center justify-center"><div className="h-2.5 w-2.5 rounded-sm bg-[hsl(var(--cyan))]" /></div>
           <span className="font-extrabold text-[hsl(var(--deep-blue))]">WularData</span>
         </Link>
         <nav className="p-3 space-y-1 flex-1">
           {items.map(it => (
-            <NavLink key={it.to} to={it.to} end={it.end} className={({ isActive }) => `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive ? 'bg-[hsl(var(--deep-blue))] text-white' : 'text-foreground hover:bg-secondary'}`}>
+            <NavLink key={it.to} to={it.to} end={it.end} onClick={() => setMobileOpen(false)} className={({ isActive }) => `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive ? 'bg-[hsl(var(--deep-blue))] text-white' : 'text-foreground hover:bg-secondary'}`}>
               <it.icon className="h-4 w-4" /> {it.label}
             </NavLink>
           ))}
@@ -63,7 +67,7 @@ const PortalLayout = ({ children, requireAdmin = false }: { children: ReactNode;
           <button onClick={signOut} className="flex items-center gap-2 text-sm text-foreground hover:text-[hsl(var(--deep-blue))]"><LogOut className="h-4 w-4" /> Sign out</button>
         </div>
       </aside>
-      <main className="flex-1 p-8 overflow-auto">{children}</main>
+      <main className="min-w-0 flex-1 overflow-auto px-4 pb-8 pt-16 sm:px-6 lg:p-8">{children}</main>
     </div>
   );
 };

@@ -5,11 +5,19 @@ import { PILLARS } from "@/data/services";
 import { supabase } from "@/integrations/supabase/client";
 import type { User as AuthUser } from "@supabase/supabase-js";
 import Logo from "@/components/site/Logo";
+import { useCmsNavigationPages, useCmsSettings } from "@/lib/cms";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
+  const { data: settings } = useCmsSettings();
+  const { data: customPages = [] } = useCmsNavigationPages();
+  const header = settings?.header;
+  const phone = typeof header?.phone === "string" ? header.phone : "+91 9899313188";
+  const phoneHref = typeof header?.phoneHref === "string" ? header.phoneHref : "+919899313188";
+  const countryLabel = typeof header?.countryLabel === "string" ? header.countryLabel : "India (English)";
+  const quoteLabel = typeof header?.quoteLabel === "string" ? header.quoteLabel : "Get a quote";
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
@@ -25,8 +33,8 @@ const Header = () => {
       <div className="bg-[hsl(var(--deep-blue))] text-white text-xs">
         <div className="container-wd flex h-9 items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="hidden sm:inline-flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" /> India (English)</span>
-            <a href="tel:+919899313188" className="hidden md:inline-flex items-center gap-1.5 hover:text-[hsl(var(--cyan))]"><Phone className="h-3.5 w-3.5" /> +91 9899313188</a>
+            <span className="hidden sm:inline-flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" /> {countryLabel}</span>
+            <a href={`tel:${phoneHref}`} className="hidden md:inline-flex items-center gap-1.5 hover:text-[hsl(var(--cyan))]"><Phone className="h-3.5 w-3.5" /> {phone}</a>
           </div>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="hidden md:inline-flex items-center gap-1.5 hover:text-[hsl(var(--cyan))]"><HelpCircle className="h-3.5 w-3.5" /> Help</Link>
@@ -86,10 +94,11 @@ const Header = () => {
           ))}
           <NavLink to="/about" className="rounded px-3 py-2 text-sm font-semibold hover:text-[hsl(var(--deep-blue))]">About</NavLink>
           <NavLink to="/contact" className="rounded px-3 py-2 text-sm font-semibold hover:text-[hsl(var(--deep-blue))]">Contact</NavLink>
+          {customPages.map(page => <NavLink key={page.slug} to={`/${page.slug}`} className="rounded px-3 py-2 text-sm font-semibold hover:text-[hsl(var(--deep-blue))]">{page.navigation_label || page.title}</NavLink>)}
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Link to="/contact" className="btn-primary-solid !py-2 !text-xs">Get a quote</Link>
+          <Link to="/contact" className="btn-primary-solid !py-2 !text-xs">{quoteLabel}</Link>
         </div>
 
         <button className="lg:hidden p-2" onClick={() => setMobileOpen(v => !v)} aria-label="Menu">
@@ -121,7 +130,8 @@ const Header = () => {
             <Link to="/" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">Home</Link>
             <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">About</Link>
             <Link to="/contact" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">Contact</Link>
-            <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-primary-solid w-full !py-2.5">Get a quote</Link>
+            {customPages.map(page => <Link key={page.slug} to={`/${page.slug}`} onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold">{page.navigation_label || page.title}</Link>)}
+            <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-primary-solid w-full !py-2.5">{quoteLabel}</Link>
           </div>
         </div>
       )}

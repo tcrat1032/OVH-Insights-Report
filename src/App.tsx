@@ -22,6 +22,7 @@ import Quotes from "./pages/portal/Quotes";
 import Tickets from "./pages/portal/Tickets";
 import Profile from "./pages/portal/Profile";
 import Admin from "./pages/portal/Admin";
+import DynamicPage from "./pages/DynamicPage";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
           {/* Generic service pages: /:pillar/:service — must stay after the
               hand-built pages above so those keep their own components. */}
           <Route path="/:pillarSlug/:serviceSlug" element={<ServicePage />} />
+          <Route path="/:pageSlug" element={<DynamicPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

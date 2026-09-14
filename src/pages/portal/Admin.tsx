@@ -2,13 +2,14 @@ import PortalLayout from "@/components/portal/PortalLayout";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { FileText, LifeBuoy, Users, ShieldCheck, Loader2, Send } from "lucide-react";
+import { FileText, LifeBuoy, Users, ShieldCheck, Loader2, Send, PanelsTopLeft } from "lucide-react";
+import ContentManager from "@/components/portal/ContentManager";
 
 const QUOTE_STATUSES = ["new", "in_review", "quoted", "closed"] as const;
 const TICKET_STATUSES = ["open", "pending", "resolved", "closed"] as const;
 const TICKET_PRIORITIES = ["low", "normal", "high", "urgent"] as const;
 
-type Tab = "overview" | "quotes" | "tickets" | "customers";
+type Tab = "overview" | "content" | "quotes" | "tickets" | "customers";
 
 const Admin = () => {
   const [tab, setTab] = useState<Tab>("overview");
@@ -92,6 +93,7 @@ const Admin = () => {
 
   const tabs: { id: Tab; label: string }[] = [
     { id: "overview", label: "Overview" },
+    { id: "content", label: "Content" },
     { id: "quotes", label: `Enquiries (${quotes.length})` },
     { id: "tickets", label: `Tickets (${tickets.length})` },
     { id: "customers", label: `Customers (${users.length})` },
@@ -100,7 +102,7 @@ const Admin = () => {
   return (
     <PortalLayout requireAdmin>
       <h1 className="text-2xl font-extrabold mb-1">Site administration</h1>
-      <p className="text-muted-foreground text-sm mb-6">Manage enquiries, support tickets, customers and admin access.</p>
+      <p className="text-muted-foreground text-sm mb-6">Manage website content, enquiries, support tickets, customers and admin access.</p>
 
       <div className="flex flex-wrap gap-2 mb-5">
         {tabs.map(t => (
@@ -108,7 +110,9 @@ const Admin = () => {
         ))}
       </div>
 
-      {loading ? (
+      {tab === "content" ? (
+        <ContentManager />
+      ) : loading ? (
         <div className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> Loading data…</div>
       ) : tab === "overview" ? (
         <div className="space-y-6">
