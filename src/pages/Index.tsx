@@ -8,6 +8,7 @@ import { PILLARS, ALL_SERVICES } from "@/data/services";
 import dataCenterCardImg from "@/assets/data-center-card.png";
 import hostingServicesCardImg from "@/assets/hosting-services-card.png";
 import itInfrastructureCardImg from "@/assets/it-infrastructure-card.png";
+import { formatCmsPrice, useCmsPlans, useCmsServices } from "@/lib/cms";
 
 const FEATURED_SLUGS = ["dedicated-servers", "vps", "web-hosting", "domain-registration"];
 
@@ -18,6 +19,8 @@ const Index = () => {
     path: "/",
   });
   const featured = ALL_SERVICES.filter(s => FEATURED_SLUGS.includes(s.slug));
+  const { data: cmsServices = [] } = useCmsServices();
+  const { data: cmsPlans = [] } = useCmsPlans();
 
   return (
     <PublicLayout>
@@ -157,14 +160,19 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {featured.map(s => {
               const Icon = s.icon;
+              const managedService = cmsServices.find(item => item.slug === s.slug);
+              const managedPlan = managedService ? cmsPlans.find(plan => plan.service_id === managedService.id) : undefined;
+              const displayName = managedService?.name || s.name;
+              const description = managedService?.short_description || s.shortDesc;
+              const displayPrice = managedPlan ? formatCmsPrice(managedPlan) : s.startingPrice;
               return (
                 <div key={s.slug} className="rounded-lg border bg-card p-6 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
                   <Icon className="h-8 w-8 text-[hsl(var(--deep-blue))] mb-3" />
-                  <h3 className="font-bold mb-1">{s.name}</h3>
-                  <p className="text-xs text-muted-foreground mb-4">{s.shortDesc}</p>
-                  <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{s.startingPrice}<span className="text-xs font-normal text-muted-foreground">{s.slug === "domain-registration" ? "" : "/mo"}</span></p>
+                   <h3 className="font-bold mb-1">{displayName}</h3>
+                   <p className="text-xs text-muted-foreground mb-4">{description}</p>
+                   <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{displayPrice}<span className="text-xs font-normal text-muted-foreground">{managedPlan ? `/${managedPlan.billing_period}` : s.slug === "domain-registration" ? "" : "/mo"}</span></p>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-4">Starting price</p>
-                  <Link to={`/contact?service=${encodeURIComponent(s.name)}`} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Configure →</Link>
+                   <Link to={`/contact?service=${encodeURIComponent(displayName)}`} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Configure →</Link>
                 </div>
               );
             })}

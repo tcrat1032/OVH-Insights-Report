@@ -100,7 +100,7 @@ const ContentManager = () => {
   const patchSetting = (key: string, field: string, value: string) => setSettingsDraft(current => ({ ...current, [key]: { ...(current[key] || {}), [field]: value } }));
 
   const saveService = async (service: CmsService) => {
-    const { error } = await supabase.from("cms_services").update({ name: service.name, short_description: service.short_description, long_description: service.long_description, features: service.features, status: service.status, display_order: service.display_order }).eq("id", service.id);
+    const { error } = await supabase.from("cms_services").update({ pillar_slug: service.pillar_slug, slug: slugify(service.slug), name: service.name, short_description: service.short_description, long_description: service.long_description, features: service.features, status: service.status, display_order: service.display_order }).eq("id", service.id);
     if (error) return toast.error(error.message); toast.success("Service saved"); await load();
   };
 
