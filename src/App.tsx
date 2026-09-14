@@ -23,6 +23,7 @@ import Tickets from "./pages/portal/Tickets";
 import Profile from "./pages/portal/Profile";
 import Admin from "./pages/portal/Admin";
 import DynamicPage from "./pages/DynamicPage";
+import ManagedPage from "./components/cms/ManagedPage";
 
 const queryClient = new QueryClient();
 
@@ -33,19 +34,19 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<ManagedPage slug="home"><Index /></ManagedPage>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="/data-center-services" element={<PillarPage />} />
-          <Route path="/data-center-services/dedicated-servers" element={<DedicatedServers />} />
-          <Route path="/data-center-services/vps" element={<VPS />} />
-          <Route path="/data-center-services/application-hosting" element={<ApplicationHosting />} />
-          <Route path="/data-center-services/database-hosting" element={<DatabaseHosting />} />
-          <Route path="/data-center-services/storage-provisioning" element={<StorageProvisioning />} />
-          <Route path="/data-center-services/backup-and-dr" element={<BackupAndDR />} />
-          <Route path="/hosting-services" element={<PillarPage />} />
-          <Route path="/it-infrastructure" element={<PillarPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/data-center-services" element={<ManagedPage slug="data-center-services"><PillarPage /></ManagedPage>} />
+          <Route path="/data-center-services/dedicated-servers" element={<ManagedPage slug="data-center-services/dedicated-servers"><DedicatedServers /></ManagedPage>} />
+          <Route path="/data-center-services/vps" element={<ManagedPage slug="data-center-services/vps"><VPS /></ManagedPage>} />
+          <Route path="/data-center-services/application-hosting" element={<ManagedPage slug="data-center-services/application-hosting"><ApplicationHosting /></ManagedPage>} />
+          <Route path="/data-center-services/database-hosting" element={<ManagedPage slug="data-center-services/database-hosting"><DatabaseHosting /></ManagedPage>} />
+          <Route path="/data-center-services/storage-provisioning" element={<ManagedPage slug="data-center-services/storage-provisioning"><StorageProvisioning /></ManagedPage>} />
+          <Route path="/data-center-services/backup-and-dr" element={<ManagedPage slug="data-center-services/backup-and-dr"><BackupAndDR /></ManagedPage>} />
+          <Route path="/hosting-services" element={<ManagedPage slug="hosting-services"><PillarPage /></ManagedPage>} />
+          <Route path="/it-infrastructure" element={<ManagedPage slug="it-infrastructure"><PillarPage /></ManagedPage>} />
+          <Route path="/about" element={<ManagedPage slug="about"><About /></ManagedPage>} />
+          <Route path="/contact" element={<ManagedPage slug="contact"><Contact /></ManagedPage>} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/portal" element={<Dashboard />} />
