@@ -6,11 +6,14 @@ import ServiceCard from "@/components/site/ServiceCard";
 import CTABand from "@/components/site/CTABand";
 import { PILLARS } from "@/data/services";
 import { ArrowRight } from "lucide-react";
+import { useCmsServices } from "@/lib/cms";
 
 const PillarPage = () => {
   const { pathname } = useLocation();
   const slug = pathname.replace(/^\//, "");
   const pillar = PILLARS.find(p => p.slug === slug);
+  const { data: cmsServices = [] } = useCmsServices();
+  const managedServices = cmsServices.filter(service => service.pillar_slug === slug);
 
   useSeo({
     title: pillar ? `${pillar.name} — ${pillar.tagline} | WularData` : "WularData",
@@ -57,7 +60,7 @@ const PillarPage = () => {
       {/* In this section nav */}
       <section className="border-b bg-secondary sticky top-[100px] z-30 hidden md:block">
         <div className="container-wd py-3 flex flex-wrap gap-2">
-          {pillar.services.map(s => (
+          {(managedServices.length ? managedServices : pillar.services).map(s => (
             <a key={s.slug} href={`#${s.slug}`} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white border hover:border-[hsl(var(--cyan))] hover:text-[hsl(var(--deep-blue))] transition-colors">
               {s.name}
             </a>
@@ -69,9 +72,11 @@ const PillarPage = () => {
       <section className="section">
         <div className="container-wd">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pillar.services.map(s => (
-              <ServiceCard key={s.slug} service={s} pillarSlug={pillar.slug} />
-            ))}
+            {managedServices.length ? managedServices.map(service => {
+              const fallback = pillar.services.find(item => item.slug === service.slug) || pillar.services[0];
+              if (!fallback) return null;
+              return <ServiceCard key={service.slug} service={{ ...fallback, name: service.name, shortDesc: service.short_description, longDesc: service.long_description, features: Array.isArray(service.features) ? service.features.filter((item): item is string => typeof item === "string") : [] }} pillarSlug={pillar.slug} />;
+            }) : pillar.services.map(s => <ServiceCard key={s.slug} service={s} pillarSlug={pillar.slug} />)}
           </div>
         </div>
       </section>

@@ -1,0 +1,2 @@
+ALTER TABLE public.cms_pages DROP CONSTRAINT cms_pages_reserved_slug;
+ALTER TABLE public.cms_pages ADD CONSTRAINT cms_pages_reserved_slug CHECK (slug NOT IN ('admin', 'auth', 'portal', 'reset-password', 'index'));

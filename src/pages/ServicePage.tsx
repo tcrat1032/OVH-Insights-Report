@@ -7,6 +7,7 @@ import { PILLARS } from "@/data/services";
 import { SERVICE_DETAILS } from "@/data/serviceDetails";
 import FaqAccordion from "@/components/site/FaqAccordion";
 import { useSeo } from "@/lib/seo";
+import { formatCmsPrice, useCmsPlans, useCmsServices } from "@/lib/cms";
 import { ArrowRight, Check, Clock } from "lucide-react";
 
 
@@ -17,7 +18,12 @@ import { ArrowRight, Check, Clock } from "lucide-react";
 const ServicePage = () => {
   const { pillarSlug, serviceSlug } = useParams();
   const pillar = PILLARS.find((p) => p.slug === pillarSlug);
-  const service = pillar?.services.find((s) => s.slug === serviceSlug);
+  const fallbackService = pillar?.services.find((s) => s.slug === serviceSlug);
+  const { data: cmsServices = [] } = useCmsServices();
+  const { data: cmsPlans = [] } = useCmsPlans();
+  const cmsService = cmsServices.find(item => item.pillar_slug === pillarSlug && item.slug === serviceSlug);
+  const service = fallbackService ? { ...fallbackService, ...(cmsService ? { name: cmsService.name, shortDesc: cmsService.short_description, longDesc: cmsService.long_description, features: Array.isArray(cmsService.features) ? cmsService.features.filter((item): item is string => typeof item === "string") : fallbackService.features } : {}) } : undefined;
+  const managedPlans = cmsService ? cmsPlans.filter(plan => plan.service_id === cmsService.id) : [];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -104,15 +110,15 @@ const ServicePage = () => {
         </div>
       </section>
 
-      {detail?.plans && (
+      {(managedPlans.length > 0 || detail?.plans) && (
         <section className="section bg-secondary">
           <div className="container-wd">
-            <h2 className="text-2xl font-bold mb-2">{detail.plans.heading}</h2>
-            {detail.plans.note && (
+            <h2 className="text-2xl font-bold mb-2">{detail?.plans?.heading || `${service.name} plans`}</h2>
+            {detail?.plans?.note && (
               <p className="text-sm text-muted-foreground mb-8 max-w-3xl">{detail.plans.note}</p>
             )}
             <div className="grid md:grid-cols-3 gap-4">
-              {detail.plans.items.map((plan) => (
+              {(managedPlans.length ? managedPlans.map(plan => ({ name: plan.name, price: formatCmsPrice(plan), billing: `/ ${plan.billing_period}`, specs: Array.isArray(plan.specifications) ? plan.specifications.filter((item): item is string => typeof item === "string") : [] })) : detail?.plans?.items || []).map((plan) => (
                 <div key={plan.name} className="rounded-lg bg-white p-6 shadow-card flex flex-col">
                   <h3 className="font-bold text-lg">{plan.name}</h3>
                   <p className="mt-2">

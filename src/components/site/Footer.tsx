@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { Mail, Linkedin, Twitter, Facebook, Youtube, Instagram } from "lucide-react";
 import { PILLARS } from "@/data/services";
+import { useCmsNavigationPages, useCmsSettings } from "@/lib/cms";
 
 const Footer = () => {
+  const { data: settings } = useCmsSettings();
+  const { data: customPages = [] } = useCmsNavigationPages();
+  const footer = settings?.footer;
+  const newsletterTitle = typeof footer?.newsletterTitle === "string" ? footer.newsletterTitle : "Keep in touch";
+  const newsletterText = typeof footer?.newsletterText === "string" ? footer.newsletterText : "Subscribe for product news and offers.";
+  const copyright = typeof footer?.copyright === "string" ? footer.copyright : "WularData. All rights reserved.";
+  const domain = typeof footer?.domain === "string" ? footer.domain : "wulardata.com";
   const cols = [
     {
       title: "Data Center & Colocation",
@@ -23,6 +31,7 @@ const Footer = () => {
         { name: "Contact", to: "/contact" },
         { name: "Get a quote", to: "/contact" },
         { name: "Customer Portal", to: "/portal" },
+        ...customPages.map(page => ({ name: page.navigation_label || page.title, to: `/${page.slug}` })),
       ],
     },
     {
@@ -53,8 +62,8 @@ const Footer = () => {
             </div>
           ))}
           <div>
-            <h4 className="text-white text-sm font-semibold mb-4">Keep in touch</h4>
-            <p className="text-sm mb-3">Subscribe for product news and offers.</p>
+            <h4 className="text-white text-sm font-semibold mb-4">{newsletterTitle}</h4>
+            <p className="text-sm mb-3">{newsletterText}</p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input type="email" required placeholder="you@company.com" className="flex-1 rounded-md bg-white/10 border border-white/20 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-[hsl(var(--cyan))]" />
               <button type="submit" className="rounded-md bg-[hsl(var(--cyan))] p-2 text-[hsl(var(--deep-blue))] hover:brightness-110" aria-label="Subscribe">
@@ -73,12 +82,12 @@ const Footer = () => {
       </div>
       <div className="border-t border-white/10">
         <div className="container-wd flex flex-col md:flex-row gap-3 items-center justify-between py-5 text-xs">
-          <p>© {new Date().getFullYear()} WularData. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {copyright}</p>
           <div className="flex gap-5">
             <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Privacy</Link>
             <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Terms</Link>
             <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Cookies</Link>
-            <span>wulardata.com</span>
+            <span>{domain}</span>
           </div>
         </div>
       </div>

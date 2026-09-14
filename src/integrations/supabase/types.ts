@@ -14,6 +14,236 @@ export type Database = {
   }
   public: {
     Tables: {
+      cms_media: {
+        Row: {
+          alt_text: string
+          created_at: string
+          file_name: string
+          id: string
+          mime_type: string
+          size_bytes: number
+          storage_path: string
+          updated_at: string
+          uploaded_by: string
+        }
+        Insert: {
+          alt_text?: string
+          created_at?: string
+          file_name: string
+          id?: string
+          mime_type: string
+          size_bytes: number
+          storage_path: string
+          updated_at?: string
+          uploaded_by: string
+        }
+        Update: {
+          alt_text?: string
+          created_at?: string
+          file_name?: string
+          id?: string
+          mime_type?: string
+          size_bytes?: number
+          storage_path?: string
+          updated_at?: string
+          uploaded_by?: string
+        }
+        Relationships: []
+      }
+      cms_pages: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          is_system: boolean
+          navigation_label: string | null
+          navigation_order: number
+          published_at: string | null
+          sections: Json
+          seo_description: string
+          seo_title: string
+          show_in_navigation: boolean
+          slug: string
+          status: Database["public"]["Enums"]["cms_publication_status"]
+          template: string
+          title: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_system?: boolean
+          navigation_label?: string | null
+          navigation_order?: number
+          published_at?: string | null
+          sections?: Json
+          seo_description?: string
+          seo_title: string
+          show_in_navigation?: boolean
+          slug: string
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          template?: string
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_system?: boolean
+          navigation_label?: string | null
+          navigation_order?: number
+          published_at?: string | null
+          sections?: Json
+          seo_description?: string
+          seo_title?: string
+          show_in_navigation?: boolean
+          slug?: string
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          template?: string
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
+      cms_plans: {
+        Row: {
+          billing_period: string
+          created_at: string
+          currency_code: string
+          currency_symbol: string
+          display_order: number
+          featured_label: string | null
+          id: string
+          name: string
+          price_amount: number | null
+          price_label: string | null
+          service_id: string
+          specifications: Json
+          status: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at: string
+        }
+        Insert: {
+          billing_period?: string
+          created_at?: string
+          currency_code?: string
+          currency_symbol?: string
+          display_order?: number
+          featured_label?: string | null
+          id?: string
+          name: string
+          price_amount?: number | null
+          price_label?: string | null
+          service_id: string
+          specifications?: Json
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at?: string
+        }
+        Update: {
+          billing_period?: string
+          created_at?: string
+          currency_code?: string
+          currency_symbol?: string
+          display_order?: number
+          featured_label?: string | null
+          id?: string
+          name?: string
+          price_amount?: number | null
+          price_label?: string | null
+          service_id?: string
+          specifications?: Json
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_plans_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "cms_services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cms_services: {
+        Row: {
+          created_at: string
+          display_order: number
+          features: Json
+          icon_key: string
+          id: string
+          long_description: string
+          name: string
+          pillar_slug: string
+          short_description: string
+          slug: string
+          status: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          features?: Json
+          icon_key?: string
+          id?: string
+          long_description?: string
+          name: string
+          pillar_slug: string
+          short_description?: string
+          slug: string
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          features?: Json
+          icon_key?: string
+          id?: string
+          long_description?: string
+          name?: string
+          pillar_slug?: string
+          short_description?: string
+          slug?: string
+          status?: Database["public"]["Enums"]["cms_publication_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      cms_settings: {
+        Row: {
+          created_at: string
+          description: string
+          is_public: boolean
+          key: string
+          updated_at: string
+          updated_by: string | null
+          value: Json
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          is_public?: boolean
+          key: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          is_public?: boolean
+          key?: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           company: string | null
@@ -202,6 +432,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "customer"
+      cms_publication_status: "draft" | "published" | "archived"
       quote_status: "new" | "in_review" | "quoted" | "closed"
       ticket_priority: "low" | "normal" | "high" | "urgent"
       ticket_status: "open" | "pending" | "resolved" | "closed"
@@ -333,6 +564,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "customer"],
+      cms_publication_status: ["draft", "published", "archived"],
       quote_status: ["new", "in_review", "quoted", "closed"],
       ticket_priority: ["low", "normal", "high", "urgent"],
       ticket_status: ["open", "pending", "resolved", "closed"],
