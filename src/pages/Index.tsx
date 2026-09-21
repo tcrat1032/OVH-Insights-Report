@@ -36,13 +36,19 @@ const Index = () => {
             </h1>
             <div className="space-y-4 text-[15px] md:text-base leading-relaxed text-foreground">
               <p>
-                WularData is an Indian cloud and data centre services company built on a simple premise: your infrastructure and your data should sit in India, under Indian law, operated by engineers you can reach on the phone.
+                WularData, India's leading Indian cloud solutions provider, delivers a wide spectrum of services, including public and private cloud solutions, business analytics, custom applications, shared hosting, and dedicated servers, serving customers worldwide. Our offerings also include AI-powered chatbots, domain registration, and telephony services, empowering clients to enhance their digital capabilities.
               </p>
               <p>
-                We run bare-metal dedicated servers, virtual private servers, colocation racks, managed backup and disaster recovery from Indian data centres — with your workloads and your customers' data resident in India under the DPDP Act, 2023. Alongside the infrastructure, we register and manage domains, host business websites and email, and run day-to-day IT operations for companies that would rather not build an internal team for it.
+                Based in Noida, WularData is an enterprise IT infrastructure provider serving businesses across India with VMware management, VPS hosting, and Data Center Services. Backed by expert IT operations support, we help companies build and maintain infrastructure that's reliable, secure, and built to scale — no matter where in the country they operate.
               </p>
               <p>
-                From a single VPS to a full cage, from a first website to a multi-site DR architecture — one provider, one contract, one number to call.
+                Our services go beyond hosting, including data center services, IT infrastructure, app development, managed databases, cloud storage, backup and disaster recovery, bare metal servers, and VPS solutions. We also provide web hosting, system monitoring, cloud telephony, and VPN cloud solutions to support growing businesses.
+              </p>
+              <p>
+                Our Indian data centres offer dedicated servers, VPS, colocation, backup, and disaster recovery solutions, helping businesses keep workloads and customer data in India while supporting compliance with the DPDP Act, 2023. We also provide domain registration, website and email hosting, and IT operations for businesses that need reliable technology support.
+              </p>
+              <p>
+                Discover how WularData can power your infrastructure — today and as you grow.
               </p>
             </div>
           </div>
