@@ -70,6 +70,19 @@ const PillarPage = () => {
         </section>
       )}
 
+      {slug === "hosting-services" && (
+        <section className="section border-b bg-background">
+          <div className="container-wd max-w-5xl">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              Reliable Hosting Services for Businesses
+            </h2>
+            <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground md:text-lg">
+              Get reliable, secure, and scalable hosting services designed to support your websites, applications, and business workloads. WularData provides flexible hosting solutions with dependable infrastructure, high-performance resources, and the scalability businesses need as they grow. Whether you are hosting a business website, web application, database, or other online platform, our solutions are built to deliver consistent performance, security, and reliable connectivity. As a trusted IT solutions provider, WularData helps businesses access the right technology solutions to support their day-to-day operations and long-term growth.
+            </p>
+          </div>
+        </section>
+      )}
+
       {slug === "it-infrastructure" && (
         <section className="section border-b bg-background">
           <div className="container-wd max-w-5xl">
