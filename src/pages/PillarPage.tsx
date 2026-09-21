@@ -81,6 +81,19 @@ const PillarPage = () => {
         </div>
       </section>
 
+      {slug === "it-infrastructure" && (
+        <section className="section border-t bg-background">
+          <div className="container-wd max-w-5xl">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              Get Reliable IT Support &amp; Consulting for Your Business
+            </h2>
+            <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground md:text-lg">
+              A dependable IT environment is essential for businesses that rely on technology for everyday operations, data, applications, and communication. WularData delivers IT infrastructure services that help organizations improve performance, strengthen security, and maintain reliable technology operations. From infrastructure planning and management to servers, networking, cloud environments, and ongoing technical support, our solutions can be aligned with your business requirements and growth plans. With the right combination of expertise and technology, businesses can create a more resilient and scalable IT environment. Explore WularData’s IT solutions and discover how we can support your technology infrastructure.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Other pillars */}
       <section className="section bg-secondary">
         <div className="container-wd">
