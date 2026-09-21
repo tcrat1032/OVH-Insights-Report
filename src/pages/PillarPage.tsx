@@ -57,6 +57,19 @@ const PillarPage = () => {
         </div>
       </section>
 
+      {slug === "data-center-services" && (
+        <section className="section border-b bg-background">
+          <div className="container-wd max-w-5xl">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              Power Your Business with High-Performance Dedicated Servers
+            </h2>
+            <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground md:text-lg">
+              Get reliable, high-performance dedicated servers built for demanding business workloads. WularData provides single-tenant bare-metal infrastructure hosted in Indian data centres, giving you dedicated computing resources, greater control, and the flexibility to configure your server according to your requirements. Whether you’re running high-traffic websites, business applications, databases, or resource-intensive workloads, our dedicated server hosting solutions deliver performance, security, scalability, and dependable uptime.
+            </p>
+          </div>
+        </section>
+      )}
+
       {slug === "it-infrastructure" && (
         <section className="section border-b bg-background">
           <div className="container-wd max-w-5xl">
