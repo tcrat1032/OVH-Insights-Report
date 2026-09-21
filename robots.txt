@@ -1,0 +1,49 @@
+# robots.txt for wulardata.com
+# Updated: August 2026
+# Upload this file to: GitHub repo → /public/robots.txt
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
+
+# Twitter / X link previews
+User-agent: Twitterbot
+Allow: /
+
+# Facebook link previews
+User-agent: facebookexternalhit
+Allow: /
+
+# LinkedIn link previews
+User-agent: LinkedInBot
+Allow: /
+
+# WhatsApp link previews
+User-agent: WhatsApp
+Allow: /
+
+# All other crawlers
+User-agent: *
+Allow: /
+Disallow: /hello-test/
+Disallow: /.netlify/
+Disallow: /supabase/
+Disallow: /auth
+Disallow: /reset-password
+Disallow: /portal
+Disallow: /admin
+
+# Sitemap location
+Sitemap: https://wulardata.com/sitemap.xml
