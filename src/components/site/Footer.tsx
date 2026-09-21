@@ -71,8 +71,21 @@ const Footer = () => {
               </button>
             </form>
             <div className="mt-5 flex gap-3">
-              {[Linkedin, Twitter, Facebook, Youtube, Instagram].map((Icon, i) => (
-                <a key={i} href="#" aria-label="Social" className="rounded-full bg-white/10 p-2 hover:bg-[hsl(var(--cyan))] hover:text-[hsl(var(--deep-blue))] transition-colors">
+              {[
+                { Icon: Linkedin, label: "LinkedIn", href: "https://in.linkedin.com/company/wular-data" },
+                { Icon: Twitter, label: "Twitter", href: "#" },
+                { Icon: Facebook, label: "Facebook", href: "#" },
+                { Icon: Youtube, label: "YouTube", href: "#" },
+                { Icon: Instagram, label: "Instagram", href: "#" },
+              ].map(({ Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="rounded-full bg-white/10 p-2 hover:bg-[hsl(var(--cyan))] hover:text-[hsl(var(--deep-blue))] transition-colors"
+                >
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
