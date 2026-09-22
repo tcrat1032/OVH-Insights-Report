@@ -30,26 +30,69 @@ const Index = () => {
       {/* Homepage H1 introduction */}
       <section className="section bg-secondary">
         <div className="container-wd">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-extrabold mb-6 text-[hsl(var(--deep-blue))]">
-              Cloud Hosting, Colocation and Managed IT Services in India
+          <div className="max-w-5xl">
+            <h1 className="mb-5 text-3xl font-extrabold text-[hsl(var(--deep-blue))] md:text-4xl">
+              Cloud Hosting, Colocation and Dedicated Servers in India
             </h1>
-            <div className="space-y-4 text-[15px] md:text-base leading-relaxed text-foreground">
-              <p>
-                WularData, India's leading Indian cloud solutions provider, delivers a wide spectrum of services, including public and private cloud solutions, business analytics, custom applications, shared hosting, and dedicated servers, serving customers worldwide. Our offerings also include AI-powered chatbots, domain registration, and telephony services, empowering clients to enhance their digital capabilities.
+            <p className="max-w-4xl text-[15px] leading-relaxed text-foreground md:text-base">
+              WularData is an Indian data center and cloud services company. We run dedicated servers, VPS hosting, colocation and backup services from our own data centers in Noida, Faridabad and Himachal Pradesh, so your servers, your data and your customers' data stay in India.
+            </p>
+
+            <div className="mt-12">
+              <h2 className="mb-6 text-2xl font-extrabold text-[hsl(var(--deep-blue))] md:text-3xl">What We Offer</h2>
+              <div className="grid gap-5 md:grid-cols-3">
+                <article className="rounded-lg border bg-card p-6 shadow-card">
+                  <h3 className="mb-3 text-lg font-bold">Data Center Services</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                    Rack and cage colocation, bare-metal dedicated servers, VPS hosting and managed databases, hosted in Indian facilities with 24×7 monitoring.
+                  </p>
+                  <a href="/data-center-services/dedicated-servers" className="inline-flex items-center gap-1 text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">
+                    Dedicated servers <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </article>
+
+                <article className="rounded-lg border bg-card p-6 shadow-card">
+                  <h3 className="mb-3 text-lg font-bold">Backup and Disaster Recovery</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                    Automated backups, off-site replication and tested disaster recovery plans, with every copy of your data held inside India.
+                  </p>
+                  <a href="/data-center-services/backup-and-dr" className="inline-flex items-center gap-1 text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">
+                    Backup and DR <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </article>
+
+                <article className="rounded-lg border bg-card p-6 shadow-card">
+                  <h3 className="mb-3 text-lg font-bold">Web Hosting, Email and Domains</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                    Business website hosting, professional email and domain registration, for companies that want one provider for their entire web presence.
+                  </p>
+                  <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    <a href="/hosting-services/web-hosting" className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Web hosting</a>
+                    <a href="/hosting-services/business-email" className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Business email</a>
+                    <a href="/hosting-services/domain-registration" className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Domain registration</a>
+                  </div>
+                </article>
+
+                <article className="rounded-lg border bg-card p-6 shadow-card md:col-span-3">
+                  <h3 className="mb-3 text-lg font-bold">Managed IT and Infrastructure Support</h3>
+                  <p className="mb-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                    Server monitoring, VMware management, hardware support and day-to-day IT operations for businesses without an in-house infrastructure team.
+                  </p>
+                  <a href="/it-infrastructure/hardware-support" className="inline-flex items-center gap-1 text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">
+                    Hardware support <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </article>
+              </div>
+            </div>
+
+            <div className="mt-12 border-t pt-10">
+              <h2 className="mb-4 text-2xl font-extrabold text-[hsl(var(--deep-blue))] md:text-3xl">Your Data Stays in India</h2>
+              <p className="max-w-4xl text-[15px] leading-relaxed text-foreground md:text-base">
+                Every WularData workload runs in an Indian data center, operated by an Indian company under Indian law. That gives your compliance team a clear, written answer on where personal data is stored under the Digital Personal Data Protection (DPDP) Act, 2023, which matters for BFSI, healthcare, SaaS and government-facing businesses. Pricing is in rupees, with no dollar-denominated billing and no exchange-rate surprises.
               </p>
-              <p>
-                Based in Noida, WularData is an enterprise IT infrastructure provider serving businesses across India with VMware management, VPS hosting, and Data Center Services. Backed by expert IT operations support, we help companies build and maintain infrastructure that's reliable, secure, and built to scale — no matter where in the country they operate.
-              </p>
-              <p>
-                Our services go beyond hosting, including data center services, IT infrastructure, app development, managed databases, cloud storage, backup and disaster recovery, bare metal servers, and VPS solutions. We also provide web hosting, system monitoring, cloud telephony, and VPN cloud solutions to support growing businesses.
-              </p>
-              <p>
-                Our Indian data centres offer dedicated servers, VPS, colocation, backup, and disaster recovery solutions, helping businesses keep workloads and customer data in India while supporting compliance with the DPDP Act, 2023. We also provide domain registration, website and email hosting, and IT operations for businesses that need reliable technology support.
-              </p>
-              <p>
-                Discover how WularData can power your infrastructure — today and as you grow.
-              </p>
+              <a href="/contact" className="btn-primary-solid mt-7">
+                Talk to an engineer about your infrastructure <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </div>
           </div>
         </div>
