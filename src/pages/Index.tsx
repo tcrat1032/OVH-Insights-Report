@@ -14,8 +14,8 @@ const FEATURED_SLUGS = ["dedicated-servers", "vps", "web-hosting", "domain-regis
 
 const Index = () => {
   useSeo({
-    title: "WularData | VPS | Dedicated Servers | Cloud Hosting | IT Support | India",
-    description: "WularData provides dedicated servers, VPS, cloud hosting, managed databases, storage, backup/DR and managed IT services from Indian data centers.",
+    title: "India Cloud Hosting, Colocation & Dedicated Servers | WularData",
+    description: "WularData provides cloud hosting, colocation, dedicated servers, VPS, backup and managed IT services from data centers in Noida, Faridabad and Himachal Pradesh.",
     path: "/",
   });
   const featured = ALL_SERVICES.filter(s => FEATURED_SLUGS.includes(s.slug));
