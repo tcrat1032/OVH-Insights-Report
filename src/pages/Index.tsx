@@ -64,7 +64,7 @@ const Index = () => {
                 <article className="rounded-lg border bg-card p-6 shadow-card">
                   <h3 className="mb-3 text-lg font-bold">Web Hosting, Email and Domains</h3>
                   <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                    Business website hosting, professional email and domain registration, for companies that want one provider for their entire web presence.
+                    Business website hosting, business email and domain registration, for companies that want one provider for their entire web presence.
                   </p>
                   <div className="flex flex-wrap gap-x-4 gap-y-2">
                     <a href="/hosting-services/web-hosting" className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Web hosting</a>
