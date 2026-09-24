@@ -19,7 +19,9 @@ const ManagedPage = ({ slug, children }: { slug: string; children: ReactNode }) 
       .then(({ data }) => { setPage(data); setLoaded(true); });
   }, [slug]);
 
-  if (!loaded) return <div className="min-h-screen bg-background" />;
+  // Show the built-in page while the CMS check runs (no blank flash, and the
+  // pre-rendered HTML stays on screen until the app takes over).
+  if (!loaded) return <>{children}</>;
   return page ? <PublishedPage page={page} /> : <>{children}</>;
 };
 
