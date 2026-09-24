@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predev": "bunx tsx scripts/generate-sitemap.ts",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "prebuild": "bunx tsx scripts/generate-sitemap.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
@@ -92,6 +92,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "puppeteer": "^24.43.1"
   }
 }
