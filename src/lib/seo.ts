@@ -46,7 +46,18 @@ export function useSeo({
       return m;
     }, title);
 
+    setMeta('meta[name="twitter:title"]', () => {
+      const m = document.createElement("meta");
+      m.setAttribute("name", "twitter:title");
+      return m;
+    }, title);
+
     if (description) {
+      setMeta('meta[name="twitter:description"]', () => {
+        const m = document.createElement("meta");
+        m.setAttribute("name", "twitter:description");
+        return m;
+      }, description);
       setMeta('meta[name="description"]', () => {
         const m = document.createElement("meta");
         m.setAttribute("name", "description");

@@ -49,6 +49,7 @@ const DedicatedServers = () => {
         item: {
           "@type": "Product",
           name: `${s.name} Dedicated Server`,
+          image: "https://wulardata.com/og-image.jpg",
           sku: s.name,
           description: `${s.cpu} · ${s.memory} · ${s.storage} · ${s.bandwidth}`,
           brand: { "@type": "Brand", name: "WularData" },
@@ -85,6 +86,10 @@ const DedicatedServers = () => {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     };
+
+    // Remove copies already in the page (e.g. from the pre-rendered HTML) so
+    // structured data is never duplicated.
+    document.head.querySelectorAll('script[data-wd-jsonld="dedicated-servers"]').forEach(el => el.remove());
 
     const scripts = [itemList, breadcrumb, faqPage].map(data => {
       const el = document.createElement("script");
