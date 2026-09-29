@@ -3,44 +3,89 @@ import { useSeo } from "@/lib/seo";
 import CTABand from "@/components/site/CTABand";
 import HeroSlider from "@/components/site/HeroSlider";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Server, Globe, Wrench, Cpu, HardDrive, Archive, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ShieldCheck, Server, Globe, Wrench, Cpu, HardDrive, Archive, CheckCircle2, Database, Mail, AppWindow } from "lucide-react";
 import { PILLARS } from "@/data/services";
 import dataCenterCardImg from "@/assets/data-center-card.png";
 import hostingServicesCardImg from "@/assets/hosting-services-card.png";
 import itInfrastructureCardImg from "@/assets/it-infrastructure-card.png";
 
-const POPULAR_PLANS = [
+const INFRASTRUCTURE_PLANS = [
   {
     title: "Dedicated Server Hosting",
-    description: "Single-tenant bare-metal servers in our own Indian data centres. Full root and IPMI access, NVMe, SSD, SATA storage options, DDoS protection included.",
-    price: "₹1,900/mo",
+    description: "Single-tenant bare-metal, Managed and Unmanaged servers in our own Indian data centres stacked in assigned Rack. Full root and IPMI access, DDoS protection included.",
+    price: "from ₹1,900/mo + GST",
     linkText: "View dedicated server plans →",
     href: "/data-center-services/dedicated-servers",
     icon: Server,
   },
   {
     title: "VPS Hosting & Cloud Servers",
-    description: "Linux or Windows VPS with SSD NVMe storage and full root access, live in under 5 minutes.",
-    price: "₹499/mo",
+    description: "Linux or Windows VPS with NVMe storage and full root access, live in under 1 Hour. Reserved vCPU and RAM, never oversold. Scale in minutes, billed in rupees",
+    price: "from ₹499/mo + GST",
     linkText: "See VPS plans →",
     href: "/data-center-services/vps",
     icon: Cpu,
   },
   {
     title: "Server Colocation",
-    description: "Rack space for your own servers in Delhi NCR, Chandigarh or Kalka. 1U to full rack, 24×7 remote hands.",
-    price: "from ₹1450/mo",
+    description: "Rack space for your own servers in Faridabad, Mohali and Kalka. 1U to full rack, 24×7 remote hands.",
+    price: "from ₹1,450/mo per 1U + GST",
     linkText: "Explore colocation →",
     href: "/data-center-services/colocation",
     icon: HardDrive,
   },
   {
+    title: "Managed Databases (MS SQL, MySQL, PostgreSQL)",
+    description: "Managed database servers with backups, monitoring and patching, hosted in India.",
+    price: "from ₹[X]/mo + GST",
+    linkText: "View database plans →",
+    href: "/data-center-services/database-hosting",
+    icon: Database,
+  },
+  {
     title: "Backup & Disaster Recovery",
-    description: "Automated off-site backups and DR between two Indian data centres.",
-    price: "from ₹999/mo",
+    description: "Automated off-site backups and DR across our three Indian data centres.",
+    price: "from ₹999/mo + GST",
     linkText: "View backup plans →",
     href: "/data-center-services/backup-and-dr",
     icon: Archive,
+  },
+];
+
+const MANAGED_IT_PLANS = [
+  {
+    title: "IT Support (Remote & On-site)",
+    description: "Helpdesk and end-user support, with on-site engineer visits across Delhi NCR and Chandigarh Tricity.",
+    linkText: "Explore IT support →",
+    href: "/it-infrastructure/it-managed-services",
+    icon: Wrench,
+  },
+];
+
+const HOSTING_PLANS = [
+  {
+    title: "Domain Registration",
+    description: "500+ extensions with free WHOIS privacy.",
+    price: "₹499/yr",
+    linkText: "Search domains →",
+    href: "/hosting-services/domain-registration",
+    icon: Globe,
+  },
+  {
+    title: "Web Hosting for Developers",
+    description: "SSD hosting with free SSL, email and one-click apps.",
+    price: "from ₹199/mo + GST",
+    linkText: "View hosting plans →",
+    href: "/hosting-services/web-hosting",
+    icon: AppWindow,
+  },
+  {
+    title: "Business Email ",
+    description: "Professional email on your own domain with calendar and mobile sync. Full web, Desktop Client and Mobile compatibility. Autodiscovery records for automatic provisioning. 24x7 Support",
+    price: "from ₹29/user/mo + GST",
+    linkText: "View email plans →",
+    href: "/hosting-services/business-email",
+    icon: Mail,
   },
 ];
 
@@ -221,43 +266,77 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured services with pricing */}
+      {/* Infrastructure plans */}
       <section className="pt-6 pb-16 md:pt-8 md:pb-24">
         <div className="container-wd">
           <div className="mb-10">
-            <div>
-              <p className="eyebrow mb-2">Featured services</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold">
-                Dedicated Servers, Cloud &amp; Colocation Plans in India
-              </h2>
-              <p className="mt-3 max-w-3xl text-sm text-muted-foreground md:text-base">
-                Hosted in WularData&apos;s own data centres in Delhi NCR, Chandigarh and Kalka. INR pricing, no dollar billing for Indian Customers.
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Dedicated Servers, Cloud &amp; Colocation Plans in India</h2>
+            <p className="mt-3 max-w-3xl text-sm text-muted-foreground md:text-base">
+              Hosted in WularData&apos;s own data centres in Faridabad (Delhi NCR), Mohali (Chandigarh Tricity) and Kalka (serving Himachal). INR pricing, GST invoice, no dollar billing.
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {POPULAR_PLANS.map(plan => {
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {INFRASTRUCTURE_PLANS.map(plan => {
               const Icon = plan.icon;
               return (
                 <div key={plan.title} className="rounded-lg border bg-card p-6 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
                   <Icon className="h-8 w-8 text-[hsl(var(--deep-blue))] mb-3" />
-                   <h3 className="font-bold mb-1">{plan.title}</h3>
-                   <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
-                   <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{plan.price}</p>
+                  <h3 className="font-bold mb-1">{plan.title}</h3>
+                  <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
+                  <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{plan.price}</p>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-4">Starting price</p>
-                    <Link to={plan.href} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">{plan.linkText}</Link>
+                  <Link to={plan.href} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">{plan.linkText}</Link>
                 </div>
               );
             })}
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            Also available:{" "}
-            <Link to="/hosting-services/domain-registration" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">domain registration from ₹499/yr</Link>
-            {" · "}
-            <Link to="/hosting-services/web-hosting" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">business web hosting from ₹199/mo</Link>
-            {" · "}
-            <Link to="/hosting-services/business-email" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">business email</Link>
-          </p>
+        </div>
+      </section>
+
+      {/* Managed IT services */}
+      <section className="pb-16 md:pb-24">
+        <div className="container-wd">
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold">Managed IT Services &amp; IT AMC for Businesses in Delhi NCR and Chandigarh Tricity</h2>
+            <p className="mt-3 max-w-3xl text-sm text-muted-foreground md:text-base">
+              On-site engineers across Delhi, Noida, Greater Noida, Gurugram, Faridabad, Ghaziabad, Chandigarh, Mohali, Panchkula and Zirakpur.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {MANAGED_IT_PLANS.map(plan => {
+              const Icon = plan.icon;
+              return (
+                <div key={plan.title} className="rounded-lg border bg-card p-6 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
+                  <Icon className="h-8 w-8 text-[hsl(var(--deep-blue))] mb-3" />
+                  <h3 className="font-bold mb-1">{plan.title}</h3>
+                  <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
+                  <Link to={plan.href} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">{plan.linkText}</Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Hosting services */}
+      <section className="pb-16 md:pb-24">
+        <div className="container-wd">
+          <h2 className="mb-8 text-3xl font-extrabold md:text-4xl">Domains, Web Hosting &amp; Business Email</h2>
+          <div className="grid gap-5 md:grid-cols-3">
+            {HOSTING_PLANS.map(plan => {
+              const Icon = plan.icon;
+              return (
+                <div key={plan.title} className="rounded-lg border bg-card p-5 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
+                  <Icon className="h-7 w-7 text-[hsl(var(--deep-blue))] mb-3" />
+                  <h3 className="font-bold mb-1">{plan.title}</h3>
+                  <p className="text-xs text-muted-foreground mb-3">{plan.description}</p>
+                  <p className="text-xl font-extrabold text-[hsl(var(--deep-blue))]">{plan.price}</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-3">Starting price</p>
+                  <Link to={plan.href} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">{plan.linkText}</Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
