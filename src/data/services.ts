@@ -42,6 +42,13 @@ export const PILLARS: Pillar[] = [
         startingPrice: "₹499",
       },
       {
+        slug: "colocation", name: "Server Colocation", icon: HardDrive,
+        shortDesc: "Secure rack space for your hardware in Indian data centres.",
+        longDesc: "Colocate your own servers in WularData facilities across Delhi NCR, Chandigarh and Kalka, with options from 1U to a full rack and 24×7 remote hands support.",
+        features: ["1U to full-rack options", "Delhi NCR, Chandigarh and Kalka", "24×7 remote hands", "Redundant power and connectivity", "DDoS protection", "Monitored access"],
+        startingPrice: "₹1,450",
+      },
+      {
         slug: "application-hosting", name: "Application Hosting", icon: AppWindow,
         shortDesc: "Managed runtime for Node, Java, .NET and Python apps.",
         longDesc: "Fully managed application platform with auto-scaling, zero-downtime deploys, SSL and integrated monitoring.",

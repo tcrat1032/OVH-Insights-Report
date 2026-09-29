@@ -3,14 +3,46 @@ import { useSeo } from "@/lib/seo";
 import CTABand from "@/components/site/CTABand";
 import HeroSlider from "@/components/site/HeroSlider";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Server, Globe, Wrench, Cpu, HardDrive, Mail, CheckCircle2 } from "lucide-react";
-import { PILLARS, ALL_SERVICES } from "@/data/services";
+import { ArrowRight, ShieldCheck, Server, Globe, Wrench, Cpu, HardDrive, Archive, CheckCircle2 } from "lucide-react";
+import { PILLARS } from "@/data/services";
 import dataCenterCardImg from "@/assets/data-center-card.png";
 import hostingServicesCardImg from "@/assets/hosting-services-card.png";
 import itInfrastructureCardImg from "@/assets/it-infrastructure-card.png";
-import { formatCmsPrice, useCmsPlans, useCmsServices } from "@/lib/cms";
 
-const FEATURED_SLUGS = ["dedicated-servers", "vps", "web-hosting", "domain-registration"];
+const POPULAR_PLANS = [
+  {
+    title: "Dedicated Server Hosting",
+    description: "Single-tenant bare-metal servers in our own Indian data centres. Full root and IPMI access, NVMe, SSD, SATA storage options, DDoS protection included.",
+    price: "₹1,900/mo",
+    linkText: "View dedicated server plans →",
+    href: "/data-center-services/dedicated-servers",
+    icon: Server,
+  },
+  {
+    title: "VPS Hosting & Cloud Servers",
+    description: "Linux or Windows VPS with SSD NVMe storage and full root access, live in under 5 minutes.",
+    price: "₹499/mo",
+    linkText: "See VPS plans →",
+    href: "/data-center-services/vps",
+    icon: Cpu,
+  },
+  {
+    title: "Server Colocation",
+    description: "Rack space for your own servers in Delhi NCR, Chandigarh or Kalka. 1U to full rack, 24×7 remote hands.",
+    price: "from ₹1450/mo",
+    linkText: "Explore colocation →",
+    href: "/data-center-services/colocation",
+    icon: HardDrive,
+  },
+  {
+    title: "Backup & Disaster Recovery",
+    description: "Automated off-site backups and DR between two Indian data centres.",
+    price: "from ₹999/mo",
+    linkText: "View backup plans →",
+    href: "/data-center-services/backup-and-dr",
+    icon: Archive,
+  },
+];
 
 const Index = () => {
   useSeo({
@@ -18,10 +50,6 @@ const Index = () => {
     description: "WularData provides cloud hosting, colocation, dedicated servers, VPS, backup and managed IT services from data centers in Noida, Faridabad and Himachal Pradesh.",
     path: "/",
   });
-  const featured = ALL_SERVICES.filter(s => FEATURED_SLUGS.includes(s.slug));
-  const { data: cmsServices = [] } = useCmsServices();
-  const { data: cmsPlans = [] } = useCmsPlans();
-
   return (
     <PublicLayout>
       {/* Hero slideshow */}
@@ -196,36 +224,40 @@ const Index = () => {
       {/* Featured services with pricing */}
       <section className="pt-6 pb-16 md:pt-8 md:pb-24">
         <div className="container-wd">
-          <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+          <div className="mb-10">
             <div>
               <p className="eyebrow mb-2">Featured services</p>
               <h2 className="text-3xl md:text-4xl font-extrabold">
-                <span className="text-[hsl(140_70%_40%)]">Explore</span>{" "}
-                <span className="text-[hsl(var(--deep-blue))]">Popular Plans</span>
+                Dedicated Servers, Cloud &amp; Colocation Plans in India
               </h2>
+              <p className="mt-3 max-w-3xl text-sm text-muted-foreground md:text-base">
+                Hosted in WularData&apos;s own data centres in Delhi NCR, Chandigarh and Kalka. INR pricing, no dollar billing for Indian Customers.
+              </p>
             </div>
-            <Link to="/contact" className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Need something custom? Talk to sales →</Link>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featured.map(s => {
-              const Icon = s.icon;
-              const managedService = cmsServices.find(item => item.slug === s.slug);
-              const managedPlan = managedService ? cmsPlans.find(plan => plan.service_id === managedService.id) : undefined;
-              const displayName = managedService?.name || s.name;
-              const description = managedService?.short_description || s.shortDesc;
-              const displayPrice = managedPlan ? formatCmsPrice(managedPlan) : s.startingPrice;
+            {POPULAR_PLANS.map(plan => {
+              const Icon = plan.icon;
               return (
-                <div key={s.slug} className="rounded-lg border bg-card p-6 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
+                <div key={plan.title} className="rounded-lg border bg-card p-6 hover:border-[hsl(var(--cyan))] hover:shadow-elevated transition-all">
                   <Icon className="h-8 w-8 text-[hsl(var(--deep-blue))] mb-3" />
-                   <h3 className="font-bold mb-1">{displayName}</h3>
-                   <p className="text-xs text-muted-foreground mb-4">{description}</p>
-                   <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{displayPrice}<span className="text-xs font-normal text-muted-foreground">{managedPlan ? `/${managedPlan.billing_period}` : s.slug === "domain-registration" ? "" : "/mo"}</span></p>
+                   <h3 className="font-bold mb-1">{plan.title}</h3>
+                   <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
+                   <p className="text-2xl font-extrabold text-[hsl(var(--deep-blue))]">{plan.price}</p>
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-4">Starting price</p>
-                   <Link to={`/contact?service=${encodeURIComponent(displayName)}`} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">Configure →</Link>
+                    <Link to={plan.href} className="text-sm font-semibold text-[hsl(var(--deep-blue))] hover:underline">{plan.linkText}</Link>
                 </div>
               );
             })}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Also available:{" "}
+            <Link to="/hosting-services/domain-registration" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">domain registration from ₹499/yr</Link>
+            {" · "}
+            <Link to="/hosting-services/web-hosting" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">business web hosting from ₹199/mo</Link>
+            {" · "}
+            <Link to="/hosting-services/business-email" className="font-medium text-[hsl(var(--deep-blue))] hover:underline">business email</Link>
+          </p>
         </div>
       </section>
 
