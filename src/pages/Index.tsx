@@ -37,7 +37,7 @@ const INFRASTRUCTURE_PLANS = [
   {
     title: "Managed Databases (MS SQL, MySQL, PostgreSQL)",
     description: "Managed database servers with backups, monitoring and patching, hosted in India.",
-    price: "from ₹[X]/mo + GST",
+    price: "from ₹895/mo + GST",
     linkText: "View database plans →",
     href: "/data-center-services/database-hosting",
     icon: Database,
