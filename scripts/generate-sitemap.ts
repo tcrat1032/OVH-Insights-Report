@@ -20,6 +20,7 @@ const PILLAR_SERVICES: Record<string, string[]> = {
   "data-center-services": [
     "dedicated-servers",
     "vps",
+    "colocation",
     "application-hosting",
     "database-hosting",
     "storage-provisioning",

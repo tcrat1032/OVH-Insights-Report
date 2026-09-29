@@ -20,6 +20,12 @@ export type ServiceDetail = {
 };
 
 export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
+  "data-center-services/colocation": {
+    overview: [
+      "WularData provides secure colocation for customer-owned servers in Delhi NCR, Chandigarh and Kalka, with space available from a single 1U server to a full rack.",
+      "Every deployment includes redundant power and connectivity, monitored facility access, DDoS protection and 24×7 remote hands support from engineers based in India.",
+    ],
+  },
   "data-center-services/connectivity-and-cdn": {
     overview: [
       "WularData operates edge caching, anycast DNS and private interconnects alongside our Indian data centre footprint, so static assets, media and API responses are served close to your users instead of travelling back to a single origin on every request.",
