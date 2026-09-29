@@ -10,6 +10,8 @@ import { Loader2 } from "lucide-react";
 const safeNext = (value: string | null) =>
   value && value.startsWith("/") && !value.startsWith("//") ? value : null;
 
+const PUBLIC_SITE_ORIGIN = "https://wulardata.com";
+
 
 const signInSchema = z.object({
   email: z.string().trim().email().max(255),
@@ -56,7 +58,7 @@ const Auth = () => {
         email: r.data.email,
         password: r.data.password,
         options: {
-          emailRedirectTo: next ? `${window.location.origin}${next}` : `${window.location.origin}/portal`,
+          emailRedirectTo: next ? `${PUBLIC_SITE_ORIGIN}${next}` : `${PUBLIC_SITE_ORIGIN}/portal`,
           data: { full_name: r.data.full_name, company: r.data.company },
         },
       });
@@ -73,7 +75,7 @@ const Auth = () => {
     }
     setLoading(true);
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
+      redirectTo: `${PUBLIC_SITE_ORIGIN}/reset-password`,
     });
     setLoading(false);
     if (error) toast.error(error.message);
@@ -82,8 +84,8 @@ const Auth = () => {
 
   const google = async () => {
     const redirect_uri = next
-      ? `${window.location.origin}/auth?next=${encodeURIComponent(next)}`
-      : `${window.location.origin}/portal`;
+      ? `${PUBLIC_SITE_ORIGIN}/auth?next=${encodeURIComponent(next)}`
+      : `${PUBLIC_SITE_ORIGIN}/portal`;
     const result = await lovable.auth.signInWithOAuth("google", { redirect_uri });
     if (result.error) toast.error("Google sign-in failed");
   };
