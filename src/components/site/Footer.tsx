@@ -9,7 +9,6 @@ const Footer = () => {
   const footer = settings?.footer;
   const newsletterTitle = typeof footer?.newsletterTitle === "string" ? footer.newsletterTitle : "Keep in touch";
   const newsletterText = typeof footer?.newsletterText === "string" ? footer.newsletterText : "Subscribe for product news and offers.";
-  const copyright = typeof footer?.copyright === "string" ? footer.copyright : "WularData. All rights reserved.";
   const domain = typeof footer?.domain === "string" ? footer.domain : "wulardata.com";
   const cols = [
     {
@@ -43,12 +42,26 @@ const Footer = () => {
         { name: "Documentation", to: "/contact" },
       ],
     },
+    {
+      title: "Legal",
+      links: [
+        { name: "Legal Center", to: "/legal" },
+        { name: "Customer Agreement", to: "/legal/customer-agreement" },
+        { name: "Service Terms", to: "/legal/service-terms" },
+        { name: "SLA", to: "/legal/sla" },
+        { name: "Acceptable Use", to: "/legal/acceptable-use" },
+        { name: "Privacy Policy", to: "/legal/privacy" },
+        { name: "Cookie Policy", to: "/legal/cookies" },
+        { name: "Refund Policy", to: "/legal/refund-policy" },
+        { name: "Website Terms", to: "/legal/website-terms" },
+      ],
+    },
   ];
 
   return (
     <footer className="bg-[hsl(var(--footer-bg))] text-[hsl(var(--footer-fg))]">
       <div className="container-wd py-14">
-        <div className="grid gap-10 lg:grid-cols-6">
+        <div className="grid gap-10 lg:grid-cols-4 xl:grid-cols-[repeat(7,minmax(0,1fr))]">
           {cols.map(c => (
             <div key={c.title}>
               <h4 className="text-white text-sm font-semibold mb-4">{c.title}</h4>
@@ -95,11 +108,17 @@ const Footer = () => {
       </div>
       <div className="border-t border-white/10">
         <div className="container-wd flex flex-col md:flex-row gap-3 items-center justify-between py-5 text-xs">
-          <p>© {new Date().getFullYear()} {copyright}</p>
-          <div className="flex gap-5">
-            <Link to="/legal/privacy" className="hover:text-[hsl(var(--cyan))]">Privacy</Link>
-            <Link to="/legal/website-terms" className="hover:text-[hsl(var(--cyan))]">Terms</Link>
-            <Link to="/legal/cookies" className="hover:text-[hsl(var(--cyan))]">Cookies</Link>
+          <p>© 2026 Wular Data Lake Private Limited. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <nav className="flex items-center gap-2" aria-label="Legal policies">
+              <Link to="/legal/privacy" className="hover:text-[hsl(var(--cyan))]">Privacy</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/legal/customer-agreement" className="hover:text-[hsl(var(--cyan))]">Terms</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/legal/refund-policy" className="hover:text-[hsl(var(--cyan))]">Refunds</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/legal" className="hover:text-[hsl(var(--cyan))]">Legal</Link>
+            </nav>
             <span>{domain}</span>
           </div>
         </div>
