@@ -60,7 +60,7 @@ const ServicePage = () => {
             <div>
               <p className="eyebrow text-[hsl(var(--cyan))] mb-2">{pillar.name}</p>
               <h1 className="text-3xl md:text-5xl font-extrabold mb-4">{service.name}</h1>
-              <p className="text-white/85 md:text-lg">{service.longDesc}</p>
+              <p className="text-white/85 md:text-lg"><SlaLinkedText>{service.longDesc}</SlaLinkedText></p>
               {service.startingPrice && (
                 <p className="mt-4 text-sm text-white/80">
                   Starting at <span className="text-xl font-bold text-[hsl(var(--cyan))]">{service.startingPrice}</span>/mo
@@ -77,7 +77,7 @@ const ServicePage = () => {
             {detail && (
               <div className="mb-10 space-y-4 max-w-3xl">
                 {detail.overview.map((p) => (
-                  <p key={p.slice(0, 24)} className="text-muted-foreground">{p}</p>
+                  <p key={p.slice(0, 24)} className="text-muted-foreground"><SlaLinkedText>{p}</SlaLinkedText></p>
                 ))}
               </div>
             )}

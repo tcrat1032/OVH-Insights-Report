@@ -6,6 +6,7 @@ import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { DB_ENGINES, DB_CATEGORIES, type DBEngineCategory } from "@/data/databaseHosting";
 import { Database, ShieldCheck, Globe2, Zap, Layers, Workflow, ArrowRight, Check, Search, Star, Clock, GitBranch } from "lucide-react";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 
 const CAPABILITIES = [
   { icon: Zap, title: "Provisioned in minutes", desc: "Spin up production-grade clusters with one click — no manual installs, tuning or HA setup." },
@@ -195,7 +196,7 @@ const DatabaseHosting = () => {
                   <c.icon className="h-5 w-5 text-[hsl(var(--deep-blue))]" />
                 </div>
                 <h3 className="font-bold mb-1">{c.title}</h3>
-                <p className="text-sm text-muted-foreground">{c.desc}</p>
+                <p className="text-sm text-muted-foreground"><SlaLinkedText>{c.desc}</SlaLinkedText></p>
               </div>
             ))}
           </div>

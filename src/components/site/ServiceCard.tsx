@@ -21,7 +21,7 @@ const ServiceCard = ({ service, pillarSlug }: { service: Service; pillarSlug: st
       <h3 className="text-lg font-bold text-foreground mb-2">
         <Link to={`/${pillarSlug}/${service.slug}`} className="hover:text-[hsl(var(--deep-blue))]">{service.name}</Link>
       </h3>
-      <p className="text-sm text-muted-foreground mb-4">{service.longDesc}</p>
+      <p className="text-sm text-muted-foreground mb-4"><SlaLinkedText>{service.longDesc}</SlaLinkedText></p>
       <ul className="space-y-1.5 mb-5">
         {service.features.slice(0, 4).map(f => (
           <li key={f} className="flex items-start gap-2 text-xs text-foreground">

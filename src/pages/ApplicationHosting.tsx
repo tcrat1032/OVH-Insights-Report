@@ -147,7 +147,7 @@ const ApplicationHosting = () => {
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-1">{p.category}</p>
                 <h3 className="font-bold text-[hsl(var(--deep-blue))] text-lg mb-1">{p.name}</h3>
                 <p className="text-sm font-medium text-[hsl(var(--royal))] mb-2">{p.tagline}</p>
-                <p className="text-sm text-muted-foreground mb-4">{p.description}</p>
+                <p className="text-sm text-muted-foreground mb-4"><SlaLinkedText>{p.description}</SlaLinkedText></p>
                 <ul className="space-y-1.5 mb-5">
                   {p.features.map(f => (
                     <li key={f} className="text-xs flex items-start gap-2 text-foreground/80">
@@ -190,7 +190,7 @@ const ApplicationHosting = () => {
                   <c.icon className="h-5 w-5 text-[hsl(var(--deep-blue))]" />
                 </div>
                 <h3 className="font-bold mb-1">{c.title}</h3>
-                <p className="text-sm text-muted-foreground">{c.desc}</p>
+                <p className="text-sm text-muted-foreground"><SlaLinkedText>{c.desc}</SlaLinkedText></p>
               </div>
             ))}
           </div>
