@@ -52,6 +52,17 @@ const entries: SitemapEntry[] = [
   ]),
   { path: "/about", changefreq: "yearly", priority: "0.5" },
   { path: "/contact", changefreq: "yearly", priority: "0.5" },
+  ...[
+    "/legal",
+    "/legal/customer-agreement",
+    "/legal/service-terms",
+    "/legal/sla",
+    "/legal/acceptable-use",
+    "/legal/privacy",
+    "/legal/cookies",
+    "/legal/refund-policy",
+    "/legal/website-terms",
+  ].map((path) => ({ path, changefreq: "yearly" as const, priority: "0.4" })),
 ];
 
 function generateSitemap(entries: SitemapEntry[]) {

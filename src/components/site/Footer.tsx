@@ -97,9 +97,9 @@ const Footer = () => {
         <div className="container-wd flex flex-col md:flex-row gap-3 items-center justify-between py-5 text-xs">
           <p>© {new Date().getFullYear()} {copyright}</p>
           <div className="flex gap-5">
-            <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Privacy</Link>
-            <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Terms</Link>
-            <Link to="/contact" className="hover:text-[hsl(var(--cyan))]">Cookies</Link>
+            <Link to="/legal/privacy" className="hover:text-[hsl(var(--cyan))]">Privacy</Link>
+            <Link to="/legal/website-terms" className="hover:text-[hsl(var(--cyan))]">Terms</Link>
+            <Link to="/legal/cookies" className="hover:text-[hsl(var(--cyan))]">Cookies</Link>
             <span>{domain}</span>
           </div>
         </div>
