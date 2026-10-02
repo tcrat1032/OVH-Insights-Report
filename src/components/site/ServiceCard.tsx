@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/data/services";
+import SlaLinkedText from "./SlaLinkedText";
 
 const ServiceCard = ({ service, pillarSlug }: { service: Service; pillarSlug: string }) => {
   const Icon = service.icon;
@@ -25,7 +26,7 @@ const ServiceCard = ({ service, pillarSlug }: { service: Service; pillarSlug: st
         {service.features.slice(0, 4).map(f => (
           <li key={f} className="flex items-start gap-2 text-xs text-foreground">
             <span className="mt-1.5 h-1 w-1 rounded-full bg-[hsl(var(--cyan))] shrink-0" />
-            {f}
+            <SlaLinkedText>{f}</SlaLinkedText>
           </li>
         ))}
       </ul>

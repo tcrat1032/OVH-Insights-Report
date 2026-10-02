@@ -6,6 +6,7 @@ import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { VPS_PLANS, VPS_CATEGORIES, type VpsCategory } from "@/data/vpsPlans";
 import { Cpu, HardDrive, Network, ShieldCheck, Zap, Globe2, Check, ArrowRight, Filter, Server, MonitorCog } from "lucide-react";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 
 const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
@@ -15,7 +16,7 @@ const FAQS = [
   { q: "Can I choose my operating system?", a: "Yes. Pick from popular Linux distributions (Ubuntu, Debian, AlmaLinux, Rocky, CentOS) or licensed Windows Server images." },
   { q: "Do you offer DDoS protection?", a: "Always-on, multi-layer DDoS protection is included with every VPS at no extra cost." },
   { q: "Can I scale my VPS later?", a: "Yes — you can resize CPU, RAM and storage vertically with a brief reboot. Snapshots make migrations safe and reversible." },
-  { q: "Is there an SLA?", a: "All VPS plans come with a 99.9% network and power uptime SLA, with service credits if we miss it." },
+  { q: "Is there an SLA?", a: "All VPS plans are backed by a 99.9% uptime SLA, with service credits if we miss it." },
 ];
 
 const FEATURES = [
@@ -87,8 +88,8 @@ const VPS = () => {
                 <p className="text-4xl font-extrabold">₹499<span className="text-base font-normal text-white/70">/month</span></p>
                 <p className="text-sm text-white/75 mt-2">1 vCore · 2 GB RAM · 40 GB NVMe SSD · 250 Mbps unmetered</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-                  {["Anti-DDoS", "Snapshots", "99.9% SLA", "24×7 support"].map(t => (
-                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> {t}</div>
+                  {["Anti-DDoS", "Snapshots", "99.9% uptime SLA", "24×7 support"].map(t => (
+                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> <SlaLinkedText>{t}</SlaLinkedText></div>
                   ))}
                 </div>
               </div>

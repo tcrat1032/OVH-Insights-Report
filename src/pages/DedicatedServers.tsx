@@ -6,6 +6,7 @@ import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { DEDICATED_SERVERS, SERVER_RANGES, type ServerRange } from "@/data/dedicatedServers";
 import { Server, Cpu, HardDrive, Network, ShieldCheck, Zap, Globe2, Check, ArrowRight, Filter } from "lucide-react";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 
 const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
@@ -14,7 +15,7 @@ const FAQS = [
   { q: "How fast is server delivery?", a: "Most Advance and Scale range configurations are provisioned automatically within 2 business hours once your KYC and payment are verified. Custom builds with non-standard RAID layouts, additional drives or private VLANs typically ship within 24–48 hours, and our NOC keeps you updated at every step of the build." },
   { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost. Our network automatically detects and scrubs volumetric attacks before they reach your host, while application-layer rules can be tuned on request to protect web-facing workloads and APIs." },
   { q: "Can I get IPMI / remote KVM access?", a: "Every dedicated server includes out-of-band IPMI or KVM-over-IP access as standard, giving you full remote console and virtual-media control even when the operating system is unreachable. This allows you to install custom ISOs, troubleshoot boot issues, and recover from misconfigurations without waiting for support." },
-  { q: "Is there an SLA?", a: "All dedicated servers come with a 99.99% network and power uptime SLA, backed by dual upstream providers, redundant power feeds, and enterprise hardware monitoring. If we ever miss the SLA target in a calendar month, you are eligible for service credits calculated against the affected server’s monthly fee." },
+  { q: "Is there an SLA?", a: "All dedicated servers are backed by a 99.9% uptime SLA, supported by dual upstream providers, redundant power feeds, and enterprise hardware monitoring. If we ever miss the SLA target in a calendar month, you are eligible for service credits calculated against the affected server’s monthly fee." },
 ];
 
 const FEATURES = [
@@ -27,7 +28,7 @@ const FEATURES = [
 ];
 
 const DedicatedServers = () => {
-  useSeo({ title: 'Dedicated Servers in India — Bare Metal Pricing | WularData', description: 'Single-tenant Intel Xeon and AMD EPYC dedicated servers in Indian data centers with NVMe storage, unmetered bandwidth and 99.99% SLA.' });
+  useSeo({ title: 'Dedicated Servers in India — Bare Metal Pricing | WularData', description: 'Single-tenant Intel Xeon and AMD EPYC dedicated servers in Indian data centers with NVMe storage, unmetered bandwidth and a 99.9% uptime SLA.' });
   const [range, setRange] = useState<ServerRange | "All">("All");
   const [brand, setBrand] = useState<"All" | "Intel" | "AMD">("All");
   const [minRam, setMinRam] = useState<number>(0);
@@ -152,8 +153,8 @@ const DedicatedServers = () => {
                 <p className="text-4xl font-extrabold">₹6,499<span className="text-base font-normal text-white/70">/month</span></p>
                 <p className="text-sm text-white/75 mt-2">6c/12t Xeon-E · 32 GB ECC · 2 × 512 GB NVMe · 1 Gbps unmetered</p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-                  {["Anti-DDoS", "IPMI / KVM", "99.99% SLA", "24×7 support"].map(t => (
-                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> {t}</div>
+                  {["Anti-DDoS", "IPMI / KVM", "99.9% uptime SLA", "24×7 support"].map(t => (
+                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> <SlaLinkedText>{t}</SlaLinkedText></div>
                   ))}
                 </div>
               </div>

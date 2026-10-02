@@ -6,9 +6,10 @@ import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { APP_HOSTING_PRODUCTS, APP_HOSTING_CATEGORIES, type AppHostingCategory } from "@/data/applicationHosting";
 import { Rocket, ShieldCheck, Globe2, Zap, Layers, Workflow, ArrowRight, Check, Search, Star } from "lucide-react";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 
 const CAPABILITIES = [
-  { icon: Rocket, title: "Deploy in minutes", desc: "Git-push or CLI deploys with zero-downtime rollouts and instant rollbacks." },
+  { icon: Rocket, title: "Deploy in minutes", desc: "Git-push or CLI deployments backed by a 99.9% uptime SLA, with instant rollbacks." },
   { icon: Zap, title: "Auto-scaling", desc: "Scale horizontally on CPU, memory or custom metrics — pay only for what you use." },
   { icon: ShieldCheck, title: "Secure by default", desc: "Free TLS, network isolation, secrets vault and built-in DDoS protection." },
   { icon: Layers, title: "Open standards", desc: "OCI containers, S3 storage, Kubernetes and Postgres — no proprietary lock-in." },
@@ -29,12 +30,12 @@ const FAQS = [
   { q: "Can I bring my own container images?", a: "Yes. You can deploy any OCI-compliant container image from our private registry, Docker Hub or your own registry." },
   { q: "Do you support Kubernetes?", a: "Yes — we offer a CNCF-certified Managed Kubernetes service with a free control plane, auto-upgrades and integrated load balancing and storage." },
   { q: "How is billing handled?", a: "Most services bill monthly with hourly metering. Object storage and AI endpoints are usage-based (per GB or per token). Detailed invoices are available in your customer portal." },
-  { q: "Is there an SLA?", a: "Compute and database services come with a 99.95% SLA. Object storage offers 99.9% availability and 11×9s durability." },
+  { q: "Is there an SLA?", a: "Compute, database and object storage services are backed by a 99.9% uptime SLA. Object storage also offers 11×9s durability." },
   { q: "Can I migrate from AWS / GCP / Azure?", a: "Yes. Our migration team helps you lift-and-shift containers, databases and object storage with minimal downtime. Talk to us for a free assessment." },
 ];
 
 const ApplicationHosting = () => {
-  useSeo({ title: 'Application Hosting — Managed Cloud Platform | WularData', description: 'Managed application hosting for Node, Java, .NET and Python with auto-scaling, zero-downtime deploys and monitoring.' });
+  useSeo({ title: 'Application Hosting — Managed Cloud Platform | WularData', description: 'Managed application hosting for Node, Java, .NET and Python with auto-scaling, monitoring and a 99.9% uptime SLA.' });
   const [category, setCategory] = useState<AppHostingCategory | "All">("All");
   const [query, setQuery] = useState("");
 
@@ -85,10 +86,10 @@ const ApplicationHosting = () => {
                   <h2 className="font-bold text-lg">Get started from</h2>
                 </div>
                 <p className="text-4xl font-extrabold">₹1,999<span className="text-base font-normal text-white/70">/month</span></p>
-                <p className="text-sm text-white/75 mt-2">Managed runtime · auto-scaling · free SSL · zero-downtime deploys</p>
+                <p className="text-sm text-white/75 mt-2">Managed runtime · auto-scaling · free SSL · <SlaLinkedText>99.9% uptime SLA</SlaLinkedText></p>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-                  {["Open standards", "99.95% SLA", "India-hosted", "24×7 support"].map(t => (
-                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> {t}</div>
+                  {["Open standards", "99.9% uptime SLA", "India-hosted", "24×7 support"].map(t => (
+                    <div key={t} className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[hsl(var(--cyan))]" /> <SlaLinkedText>{t}</SlaLinkedText></div>
                   ))}
                 </div>
               </div>

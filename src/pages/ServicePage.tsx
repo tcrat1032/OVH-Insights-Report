@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 import NotFound from "./NotFound";
 import PublicLayout from "@/components/site/PublicLayout";
 import CTABand from "@/components/site/CTABand";
@@ -85,7 +86,7 @@ const ServicePage = () => {
               {service.features.map((f) => (
                 <li key={f} className="flex items-start gap-2.5 rounded-lg border bg-card p-4 text-sm">
                   <Check className="h-4 w-4 text-[hsl(var(--cyan))] shrink-0 mt-0.5" />
-                  {f}
+                  <SlaLinkedText>{f}</SlaLinkedText>
                 </li>
               ))}
             </ul>
