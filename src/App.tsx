@@ -24,6 +24,7 @@ import Profile from "./pages/portal/Profile";
 import Admin from "./pages/portal/Admin";
 import DynamicPage from "./pages/DynamicPage";
 import ManagedPage from "./components/cms/ManagedPage";
+import LegalPage from "./pages/legal/LegalPage";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,8 @@ const App = () => (
           <Route path="/it-infrastructure" element={<ManagedPage slug="it-infrastructure"><PillarPage /></ManagedPage>} />
           <Route path="/about" element={<ManagedPage slug="about"><About /></ManagedPage>} />
           <Route path="/contact" element={<ManagedPage slug="contact"><Contact /></ManagedPage>} />
+          <Route path="/legal" element={<LegalPage />} />
+          <Route path="/legal/:slug" element={<LegalPage />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/portal" element={<Dashboard />} />
