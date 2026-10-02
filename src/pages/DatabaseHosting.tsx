@@ -6,13 +6,14 @@ import FaqAccordion from "@/components/site/FaqAccordion";
 import CTABand from "@/components/site/CTABand";
 import { DB_ENGINES, DB_CATEGORIES, type DBEngineCategory } from "@/data/databaseHosting";
 import { Database, ShieldCheck, Globe2, Zap, Layers, Workflow, ArrowRight, Check, Search, Star, Clock, GitBranch } from "lucide-react";
+import SlaLinkedText from "@/components/site/SlaLinkedText";
 
 const CAPABILITIES = [
   { icon: Zap, title: "Provisioned in minutes", desc: "Spin up production-grade clusters with one click — no manual installs, tuning or HA setup." },
   { icon: ShieldCheck, title: "Encrypted & isolated", desc: "TLS in transit, encryption at rest, IP allow-lists and private network attach by default." },
   { icon: Clock, title: "Backups & PITR", desc: "Automated daily backups with point-in-time recovery up to 30 days — restore in a few clicks." },
-  { icon: Layers, title: "High availability", desc: "Multi-node clusters with automatic failover and zero-downtime version upgrades." },
-  { icon: Workflow, title: "Read replicas & scaling", desc: "Add read replicas, resize vertically or scale storage online without downtime." },
+  { icon: Layers, title: "High availability", desc: "Multi-node clusters with automatic failover, backed by a 99.9% uptime SLA." },
+  { icon: Workflow, title: "Read replicas & scaling", desc: "Add read replicas, resize vertically or scale storage online within the 99.9% uptime SLA." },
   { icon: Globe2, title: "India-hosted", desc: "Mumbai-region data residency with optional multi-region replication for DR." },
 ];
 
@@ -28,8 +29,8 @@ const FAQS = [
   { q: "Which engines do you support?", a: "PostgreSQL, MySQL, MariaDB, MongoDB, Cassandra, Redis, Valkey, Elasticsearch, OpenSearch, ClickHouse, Kafka and RabbitMQ. Multiple major versions are available for each." },
   { q: "How are backups handled?", a: "All clusters get automated daily backups with retention up to 30 days. Most engines support point-in-time recovery, and you can take on-demand snapshots from the portal at any time." },
   { q: "Is data encrypted?", a: "Yes. All connections use TLS, and storage volumes are encrypted at rest by default. You can also restrict access by IP and attach clusters to your private network." },
-  { q: "Can I scale up or down?", a: "Yes. You can resize CPU, memory and storage online with zero downtime, and add read replicas or shards for horizontal scaling." },
-  { q: "What's the SLA?", a: "Single-node plans come with a 99.9% SLA; HA multi-node clusters come with a 99.95% SLA. Backups and DR are tested quarterly by our team." },
+  { q: "Can I scale up or down?", a: "Yes. You can resize CPU, memory and storage online within the 99.9% uptime SLA, and add read replicas or shards for horizontal scaling." },
+  { q: "What's the SLA?", a: "All single-node and HA multi-node database plans are backed by a 99.9% uptime SLA. Backups and DR are tested quarterly by our team." },
   { q: "Can I migrate an existing database?", a: "Yes. Our team helps you migrate from on-prem, AWS RDS, GCP Cloud SQL or Azure Database with minimal downtime using logical replication or dump/restore." },
 ];
 
@@ -195,7 +196,7 @@ const DatabaseHosting = () => {
                   <c.icon className="h-5 w-5 text-[hsl(var(--deep-blue))]" />
                 </div>
                 <h3 className="font-bold mb-1">{c.title}</h3>
-                <p className="text-sm text-muted-foreground">{c.desc}</p>
+                <p className="text-sm text-muted-foreground"><SlaLinkedText>{c.desc}</SlaLinkedText></p>
               </div>
             ))}
           </div>

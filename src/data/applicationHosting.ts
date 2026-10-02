@@ -26,7 +26,7 @@ export const APP_HOSTING_PRODUCTS: AppHostingProduct[] = [
   {
     id: "managed-runtime", name: "Managed Runtime", category: "Compute", icon: Rocket,
     tagline: "Push code, we run it.",
-    description: "Fully managed runtime for Node.js, Python, Java, .NET, PHP and Go with zero-downtime deploys and built-in autoscaling.",
+    description: "Fully managed runtime for Node.js, Python, Java, .NET, PHP and Go, backed by a 99.9% uptime SLA with built-in autoscaling.",
     features: ["Git-based deploys", "Auto-scaling 1–50 instances", "Free SSL & custom domains", "Built-in logs & metrics"],
     startingPrice: "₹1,999/mo",
     popular: true,

@@ -1,4 +1,5 @@
 import { useId, useState } from "react";
+import SlaLinkedText from "./SlaLinkedText";
 
 export type FaqItem = { q: string; a: string };
 
@@ -37,7 +38,7 @@ export default function FaqAccordion({ faqs }: { faqs: FaqItem[] }) {
               className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
             >
               <div className="overflow-hidden">
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+                <p className="mt-3 text-sm text-muted-foreground"><SlaLinkedText>{f.a}</SlaLinkedText></p>
               </div>
             </div>
           </div>

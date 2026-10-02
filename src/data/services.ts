@@ -31,7 +31,7 @@ export const PILLARS: Pillar[] = [
         slug: "dedicated-servers", name: "Dedicated Servers", icon: Server,
         shortDesc: "Single-tenant bare-metal with full hardware control.",
         longDesc: "High-performance Intel Xeon and AMD EPYC dedicated servers with NVMe storage, 1 Gbps unmetered bandwidth, IPMI access and 24×7 NOC support.",
-        features: ["Latest-gen Xeon / EPYC CPUs", "NVMe SSD storage", "1 Gbps unmetered bandwidth", "DDoS protection included", "IPMI / KVM access", "99.99% SLA"],
+        features: ["Latest-gen Xeon / EPYC CPUs", "NVMe SSD storage", "1 Gbps unmetered bandwidth", "DDoS protection included", "IPMI / KVM access", "99.9% uptime SLA"],
         startingPrice: "₹6,499",
       },
       {
@@ -51,8 +51,8 @@ export const PILLARS: Pillar[] = [
       {
         slug: "application-hosting", name: "Application Hosting", icon: AppWindow,
         shortDesc: "Managed runtime for Node, Java, .NET and Python apps.",
-        longDesc: "Fully managed application platform with auto-scaling, zero-downtime deploys, SSL and integrated monitoring.",
-        features: ["Auto-scaling", "Zero-downtime deploys", "Built-in CI/CD hooks", "Container support", "App firewall", "Real-time logs"],
+        longDesc: "Fully managed application platform with auto-scaling, deployments backed by a 99.9% uptime SLA, SSL and integrated monitoring.",
+        features: ["Auto-scaling", "99.9% uptime SLA", "Built-in CI/CD hooks", "Container support", "App firewall", "Real-time logs"],
         startingPrice: "₹1,999",
       },
       {
