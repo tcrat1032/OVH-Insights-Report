@@ -11,7 +11,7 @@ import SlaLinkedText from "@/components/site/SlaLinkedText";
 const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 const FAQS = [
-  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers are hosted in carrier-neutral, Tier-III+ data centers in Mumbai, India, with redundant power, cooling and blended IP transit. We also operate optional disaster-recovery sites in Singapore and Frankfurt, so you can build geographically separated active or standby environments for business continuity and low-latency delivery." },
+  { q: "Where are your dedicated servers hosted?", a: "Our dedicated servers run in WularData's own data centres in Faridabad (Delhi NCR) and Kalka (Foothills of Himachal Pradesh), with redundant power, cooling and multiple upstream carriers.\n\nYour server, your data and your backups stay in India. For a second site, you can place a standby environment in our other Indian facility for disaster recovery within India." },
   { q: "How fast is server delivery?", a: "Most Advance and Scale range configurations are provisioned automatically within 2 business hours once your KYC and payment are verified. Custom builds with non-standard RAID layouts, additional drives or private VLANs typically ship within 24–48 hours, and our NOC keeps you updated at every step of the build." },
   { q: "Do you offer DDoS protection?", a: "Yes. Always-on, multi-layer DDoS protection is included with every dedicated server at no extra cost. Our network automatically detects and scrubs volumetric attacks before they reach your host, while application-layer rules can be tuned on request to protect web-facing workloads and APIs." },
   { q: "Can I get IPMI / remote KVM access?", a: "Every dedicated server includes out-of-band IPMI or KVM-over-IP access as standard, giving you full remote console and virtual-media control even when the operating system is unreachable. This allows you to install custom ISOs, troubleshoot boot issues, and recover from misconfigurations without waiting for support." },
@@ -19,12 +19,12 @@ const FAQS = [
 ];
 
 const FEATURES = [
-  { icon: Zap, title: "Provisioned in minutes", desc: "Standard configurations are deployed automatically — no waiting weeks for hardware." },
+  { icon: Zap, title: "Fast provisioning", desc: "Standard configurations are ready within 2 business hours of KYC and payment verification." },
   { icon: ShieldCheck, title: "Anti-DDoS included", desc: "Always-on, multi-layer DDoS mitigation protects every server at no extra cost." },
   { icon: Network, title: "Unmetered bandwidth", desc: "From 1 Gbps to 25 Gbps unmetered public bandwidth on Indian backbone." },
   { icon: HardDrive, title: "Enterprise NVMe", desc: "Latest-gen NVMe and SAS drives in hardware or software RAID configurations." },
   { icon: Cpu, title: "Latest Intel & AMD", desc: "Choose from Xeon Scalable, EPYC Genoa and high-frequency gaming-grade CPUs." },
-  { icon: Globe2, title: "Global reach", desc: "Pair with our CDN, private interconnects and DR sites across regions." },
+  { icon: Globe2, title: "Global reach", desc: "Pair with our CDN, private interconnects and a DR site in a second Indian facility." },
 ];
 
 const DedicatedServers = () => {
@@ -135,7 +135,7 @@ const DedicatedServers = () => {
               <p className="eyebrow text-[hsl(var(--cyan))] mb-2">WularData Bare Metal</p>
               <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Dedicated Servers — full bare-metal range</h1>
               <p className="text-white/85 md:text-lg mb-6">
-                Single-tenant Intel and AMD servers with NVMe storage, unmetered bandwidth, anti-DDoS and 24×7 NOC support — provisioned in minutes from our Indian data centers.
+                Single-tenant Intel and AMD servers with NVMe storage, unmetered bandwidth, anti-DDoS and 24×7 NOC support — provisioned within 2 business hours from our own Indian data centres.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#range" className="btn-primary-solid !py-2.5">Compare servers</a>
