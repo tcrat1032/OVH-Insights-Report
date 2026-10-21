@@ -17,7 +17,7 @@ function routeName(path: string) {
 function buildMessage(path: string) {
   if (path === "/" || path === "") return "Hi WularData, I have a query about your services.";
   const h1 = document.querySelector("main h1, h1")?.textContent?.trim();
-  const name = h1 || routeName(path);
+  const name = h1?.split(/\s+[—–|:]\s+/)[0] || routeName(path);
   return `Hi WularData, I have a query about ${name} (wulardata.com${path}).`;
 }
 
