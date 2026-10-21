@@ -14,7 +14,7 @@ const CAPABILITIES = [
   { icon: Clock, title: "Backups & PITR", desc: "Automated daily backups with point-in-time recovery up to 30 days — restore in a few clicks." },
   { icon: Layers, title: "High availability", desc: "Multi-node clusters with automatic failover, backed by a 99.9% uptime SLA." },
   { icon: Workflow, title: "Read replicas & scaling", desc: "Add read replicas, resize vertically or scale storage online within the 99.9% uptime SLA." },
-  { icon: Globe2, title: "India-hosted", desc: "Mumbai-region data residency with optional multi-region replication for DR." },
+  { icon: Globe2, title: "India-hosted", desc: "Data stays in India in WularData-operated facilities, with optional replication to a second WularData site for disaster recovery." },
 ];
 
 const USE_CASES = [

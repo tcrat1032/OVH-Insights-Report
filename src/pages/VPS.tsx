@@ -25,7 +25,7 @@ const FEATURES = [
   { icon: Network, title: "Unmetered bandwidth", desc: "Generous unmetered traffic on Indian backbone — no surprise overage bills." },
   { icon: HardDrive, title: "100% NVMe SSD", desc: "Every plan ships with high-IOPS NVMe SSD storage for snappy I/O." },
   { icon: MonitorCog, title: "Snapshots & backups", desc: "On-demand snapshots and scheduled backups keep your data safe and recoverable." },
-  { icon: Globe2, title: "India-hosted", desc: "Mumbai data centers with low-latency routes across South Asia." },
+  { icon: Globe2, title: "India-hosted", desc: "Hosted in WularData's own data centres in Delhi NCR, Chandigarh and Kalka, with low-latency routes across India." },
 ];
 
 const VPS = () => {

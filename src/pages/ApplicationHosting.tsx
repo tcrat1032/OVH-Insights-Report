@@ -14,7 +14,7 @@ const CAPABILITIES = [
   { icon: ShieldCheck, title: "Secure by default", desc: "Free TLS, network isolation, secrets vault and built-in DDoS protection." },
   { icon: Layers, title: "Open standards", desc: "OCI containers, S3 storage, Kubernetes and Postgres — no proprietary lock-in." },
   { icon: Workflow, title: "Integrated CI/CD", desc: "Build, test and deploy pipelines wired to your Git provider out of the box." },
-  { icon: Globe2, title: "India-hosted", desc: "Mumbai-region data centers with optional multi-region replication." },
+  { icon: Globe2, title: "India-hosted", desc: "Runs in WularData's own Indian data centres, with optional replication to a second WularData site." },
 ];
 
 const USE_CASES = [
