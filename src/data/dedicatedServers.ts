@@ -36,7 +36,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "32 GB DDR4 ECC", memoryGB: 32,
     storage: "2 × 512 GB NVMe", storageType: "NVMe",
     bandwidth: "1 Gbps unmetered", bandwidthGbps: 1,
-    region: "India - Mumbai", priceMonthly: 6499, highlight: "Best value",
+    region: "India - Delhi NCR", priceMonthly: 6499, highlight: "Best value",
   },
   {
     id: "adv-2", name: "ADV-2", range: "Advance", cpuBrand: "AMD",
@@ -44,7 +44,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "64 GB DDR5 ECC", memoryGB: 64,
     storage: "2 × 960 GB NVMe", storageType: "NVMe",
     bandwidth: "1 Gbps unmetered", bandwidthGbps: 1,
-    region: "India - Mumbai", priceMonthly: 9499,
+    region: "India - Delhi NCR", priceMonthly: 9499,
   },
   {
     id: "adv-3", name: "ADV-3", range: "Advance", cpuBrand: "Intel",
@@ -52,7 +52,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "128 GB DDR4 ECC", memoryGB: 128,
     storage: "2 × 1.92 TB NVMe", storageType: "NVMe",
     bandwidth: "2 Gbps unmetered", bandwidthGbps: 2,
-    region: "India - Mumbai", priceMonthly: 14999,
+    region: "India - Delhi NCR", priceMonthly: 14999,
   },
   {
     id: "scl-1", name: "SCALE-1", range: "Scale", cpuBrand: "AMD",
@@ -60,7 +60,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "256 GB DDR5 ECC", memoryGB: 256,
     storage: "2 × 3.84 TB NVMe", storageType: "NVMe",
     bandwidth: "10 Gbps unmetered", bandwidthGbps: 10,
-    region: "India - Mumbai", priceMonthly: 28999, highlight: "Popular",
+    region: "India - Delhi NCR", priceMonthly: 28999, highlight: "Popular",
   },
   {
     id: "scl-2", name: "SCALE-2", range: "Scale", cpuBrand: "Intel",
@@ -68,7 +68,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "512 GB DDR5 ECC", memoryGB: 512,
     storage: "4 × 3.84 TB NVMe", storageType: "NVMe",
     bandwidth: "10 Gbps unmetered", bandwidthGbps: 10,
-    region: "India - Mumbai", priceMonthly: 49999,
+    region: "India - Delhi NCR", priceMonthly: 49999,
   },
   {
     id: "hg-1", name: "HG-1", range: "High Grade", cpuBrand: "AMD",
@@ -76,7 +76,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "1 TB DDR5 ECC", memoryGB: 1024,
     storage: "6 × 7.68 TB NVMe", storageType: "NVMe",
     bandwidth: "25 Gbps unmetered", bandwidthGbps: 25,
-    region: "India - Mumbai", priceMonthly: 119999, highlight: "Top performance",
+    region: "India - Delhi NCR", priceMonthly: 119999, highlight: "Top performance",
   },
   {
     id: "hg-2", name: "HG-2", range: "High Grade", cpuBrand: "Intel",
@@ -84,7 +84,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "1 TB DDR5 ECC", memoryGB: 1024,
     storage: "8 × 3.84 TB NVMe", storageType: "NVMe",
     bandwidth: "25 Gbps unmetered", bandwidthGbps: 25,
-    region: "India - Mumbai", priceMonthly: 134999,
+    region: "India - Delhi NCR", priceMonthly: 134999,
   },
   {
     id: "stor-1", name: "STOR-1", range: "Storage", cpuBrand: "Intel",
@@ -92,7 +92,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "64 GB DDR4 ECC", memoryGB: 64,
     storage: "6 × 12 TB SATA HDD", storageType: "HDD",
     bandwidth: "1 Gbps unmetered", bandwidthGbps: 1,
-    region: "India - Mumbai", priceMonthly: 18999,
+    region: "India - Delhi NCR", priceMonthly: 18999,
   },
   {
     id: "stor-2", name: "STOR-2", range: "Storage", cpuBrand: "AMD",
@@ -100,7 +100,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "128 GB DDR4 ECC", memoryGB: 128,
     storage: "12 × 18 TB SAS HDD", storageType: "SAS",
     bandwidth: "2 Gbps unmetered", bandwidthGbps: 2,
-    region: "India - Mumbai", priceMonthly: 34999, highlight: "Big capacity",
+    region: "India - Delhi NCR", priceMonthly: 34999, highlight: "Big capacity",
   },
   {
     id: "game-1", name: "GAME-1", range: "Game", cpuBrand: "Intel",
@@ -108,7 +108,7 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "64 GB DDR4", memoryGB: 64,
     storage: "2 × 500 GB NVMe", storageType: "NVMe",
     bandwidth: "1 Gbps unmetered", bandwidthGbps: 1,
-    region: "India - Mumbai", priceMonthly: 7999,
+    region: "India - Delhi NCR", priceMonthly: 7999,
   },
   {
     id: "game-2", name: "GAME-2", range: "Game", cpuBrand: "AMD",
@@ -116,6 +116,6 @@ export const DEDICATED_SERVERS: DedicatedServer[] = [
     memory: "128 GB DDR5", memoryGB: 128,
     storage: "2 × 2 TB NVMe", storageType: "NVMe",
     bandwidth: "2 Gbps unmetered", bandwidthGbps: 2,
-    region: "India - Mumbai", priceMonthly: 15999, highlight: "Low latency",
+    region: "India - Delhi NCR", priceMonthly: 15999, highlight: "Low latency",
   },
 ];
