@@ -282,3 +282,12 @@
     break-inside: avoid;
   }
 }
+
+/* Floating WhatsApp button */
+.wa-float { --wa-offset: 16px; }
+.wa-btn { width: 52px; height: 52px; }
+@media (min-width: 640px) {
+  .wa-float { --wa-offset: 20px; }
+  .wa-btn { width: 56px; height: 56px; }
+}
+@media (max-width: 359px) { .wa-bubble { display: none; } }
